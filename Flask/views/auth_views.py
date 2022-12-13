@@ -15,12 +15,12 @@ def signup():
     print('----1. 유저 아이디')
     if request.method=='POST' and form.validate_on_submit():
         print('----2. 이미 존재하는 지?')
-        user=User.query.filter_by(username=form.username.data).first()
+        user=User.query.filter_by(user_name=form.username.data).first()
 
         print('----3.')
         if not user:
-            user=User(username=form.username.data, password=generate_password_hash(form.password1.data),
-                      email=form.email.data, phone=form.phone.data )
+            user=User(user_name=form.username.data, user_password=generate_password_hash(form.password1.data),
+                      user_email=form.email.data, user_phone=form.phone.data )
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('main.index'))
@@ -33,7 +33,7 @@ def login():
     form = UserLoginForm()
     if request.method == 'POST' and form.validate_on_submit():
         error = None
-        user = User.query.filter_by(username=form.username.data).first()
+        user = User.query.filter_by(user_name=form.username.data).first()
         if not user:
             error = "존재하지 않는 사용자입니다."
         elif not check_password_hash(user.password, form.password.data):
@@ -44,3 +44,4 @@ def login():
             return redirect(url_for('main.index'))
         flash(error)
     return render_template('auth/login.html', form=form)
+
