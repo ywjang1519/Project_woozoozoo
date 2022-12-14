@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Scrolling Nav - Start Bootstrap Template</title>
+        <title>반려동물 피부질환 검색기</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="static/css/styles.css" rel="stylesheet" />
@@ -38,13 +38,13 @@
                 <div style="text-align: center;">
                     <div style="padding:30px;">
                         <button>사진 올리기
-                            <form action="보내기" method="post" enctype="multipart/form-data">
-                                <input type="file" accept="image/*">
-                                <input type="submit" />
+                            <form action="http://127.0.0.1:5000//fileUpload" method="POST" enctype="multipart/form-data">
+                                <input type="file" accept="image/*" name="file">
+                                <input type="submit">
                             </form>
                         </button>
                         <button>사진 보관함
-                            <form action="http://localhost:5000/fileuploader"
+                            <form action="http://127.0.0.1:5000//fileUpload"
                                 method="POST"
                                 enctype="multipart/form-data">
                                 <input type="file" name="file" />
@@ -53,6 +53,7 @@
                         </button>
                     </div>
                 </div>
+            </div>
         </header>
         <!-- About section-->
         <section id="about">
@@ -95,7 +96,7 @@
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; 반려동물 피부질환 검색기</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
