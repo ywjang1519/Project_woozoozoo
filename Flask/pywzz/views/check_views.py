@@ -7,8 +7,10 @@ import io
 
 # AI부분 
 
-model = torch.load('./model/model.pth')
+# 모델 로드
+model = torch.load('./pywzz/model/model.pth',map_location='cpu')
 
+# 이미지 정규화/텐서변환 함수
 def transform_image(image_bytes):
     transforms_img = transforms.Compose([
         transforms.Resize((224, 224)),
@@ -18,15 +20,16 @@ def transform_image(image_bytes):
     img = Image.open(io.BytesIO(image_bytes))
     return transform_image(img).unsqueeze(0)
 
+# 질병예측 함수
 def predict_image(image_bytes,model):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu") # device 객체 생성
     class_model = ['구진/플라크','비듬/각질/상피성잔고리','태선화/과다색소침착','농포/여드름','미란/궤양','결절,종괴']
     tensor_img = transform_image(image_bytes).to(device)
-    model.eval()
+    model.eval() #모델 평가모드로 전환
     with torch.no_grad():
         outputs = model(tensor_img)
         _, preds = torch.max(outputs, 1)
-    return class_model[preds]
+    return class_model[preds] # 예측값 클래스 이름 return
 
 
 # --------------------------
