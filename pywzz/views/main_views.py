@@ -6,11 +6,10 @@ bp = Blueprint('main', __name__, url_prefix='/')
 def index():
     return render_template('index.html')
 
-# @bp.route('/signup')
-# def signup():
-#     print('signup')
-#     return render_template('auth/signup.html')
-#
-# @bp.route('/login')
-# def login():
-#     return render_template('auth/login.html',)
+@bp.route('/signup')
+def signup():
+    return render_template('auth/signup.html')
+
+@bp.route('/login')
+def login():
+    return render_template('auth/login.html')
