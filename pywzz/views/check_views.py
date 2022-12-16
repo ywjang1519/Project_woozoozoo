@@ -46,7 +46,7 @@ bp = Blueprint('check', __name__, url_prefix='/check')
 def check():
     return render_template('check1.html')
 
-@bp.route('/fileUpload', methods = ['GET', 'POST'])
+@bp.route('/upload', methods = ['GET', 'POST'])
 def upload():
     if request.method == 'GET':
         return render_template('check1.html')
