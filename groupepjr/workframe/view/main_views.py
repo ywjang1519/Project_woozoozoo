@@ -27,3 +27,7 @@ def upload():
         f = request.files['file']
         f.save(secure_filename(f.filename))
         return 'file upload successfully'
+
+@bp.route('/test')
+def test():
+    return render_template('test1.html')
