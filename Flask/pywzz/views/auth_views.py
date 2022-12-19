@@ -44,8 +44,3 @@ def login():
             return redirect(url_for('main.index'))
         flash(error)
     return render_template('auth/login_bts.html', form=form)
-
-@bp.route('/test')
-def test():
-    form = UserCreateForm()
-    return render_template('auth/signup_bts.html', form=form)

@@ -11,6 +11,23 @@ bp = Blueprint('main', __name__, url_prefix='/')
 def index():
     return redirect(url_for('auth.login'))
 
+@bp.route('/test')
+def test():
+    form = UserLoginForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        error = None
+        user = User.query.filter_by(user_name=form.username.data).first()
+        if not user:
+            error = "존재하지 않는 사용자입니다."
+        elif not check_password_hash(user.password, form.password.data):
+            error = "비밀번호가 올바르지 않습니다."
+        if error is None:
+            session.clear()
+            session['user_id'] = user.id
+            return redirect(url_for('main.index'))
+        flash(error)
+    return render_template('test3.html', form=form)
+
 @bp.route('/home')
 def home():
     return redirect(url_for('index.html'))
