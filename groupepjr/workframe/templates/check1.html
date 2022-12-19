@@ -12,18 +12,8 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <div class="container px-4">
-                <a class="navbar-brand" href="#page-top">반려동물 피부질환 검색기</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5000/">HOME</a></li>
-                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5000/login">로그아웃</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        {% extends 'base.html' %}
+        {% block content %}
         <!-- Header-->
         <header class="bg-light bg-gradient text-dark">
             <div class="container px-4 text-center">
@@ -145,11 +135,7 @@
 
                             var zoomControl = new kakao.maps.ZoomControl();
                             map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-                            var mapTypeControl = new kakao.maps.MapTypeControl();
-                            map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 
-                            var zoomControl = new kakao.maps.ZoomControl();
-                            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
                             </script>
                         </ul>
                     </div>
@@ -195,4 +181,5 @@
          </div>
         </df-messenger>
     </body>
+    {% block content %}
 </html>
