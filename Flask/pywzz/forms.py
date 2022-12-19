@@ -15,3 +15,9 @@ class UserCreateForm(FlaskForm):
 class UserLoginForm(FlaskForm):
     username = StringField('사용자이름', validators=[DataRequired(), Length(min=3, max=25)])
     password = PasswordField('비밀번호', validators=[DataRequired()])
+
+class PetInfo(FlaskForm):
+    pet_name=StringField('반려동물 이름',validators=[DataRequired(),Length(min=3,max=10)])
+
+class PetImg(FlaskForm):
+    img=StringField('입력할 사진',validators=[DataRequired()])

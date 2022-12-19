@@ -5,29 +5,21 @@
 </head>
 <body>
 <!-- 네비게이션바 -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url_for('main.index') }}">Pybo</a>
-        <button class="navbar-toggler" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">계정생성</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">로그인</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="http://127.0.0.1:5000/home">woozoozoo home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5000/check/upload">피부진단</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5000/map">병원찾기</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5000/about">about</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5000/auth/signup">회원가입</a></li>
+                        <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:5000/auth/login">로그인</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 {% block content %}
 {% endblock %}

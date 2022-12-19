@@ -26,7 +26,7 @@ def signup():
             return redirect(url_for('main.index'))
         else:
             flash('이미 존재하는 유저입니다.')
-    return render_template('auth/signup.html',form=form)
+    return render_template('auth/signup_bts.html',form=form)
 
 @bp.route('/login/', methods=('GET', 'POST'))
 def login():
@@ -45,3 +45,7 @@ def login():
         flash(error)
     return render_template('auth/login_bts.html', form=form)
 
+@bp.route('/test')
+def test():
+    form = UserCreateForm()
+    return render_template('auth/signup_bts.html', form=form)
