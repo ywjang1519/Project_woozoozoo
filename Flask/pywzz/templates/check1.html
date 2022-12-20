@@ -31,17 +31,21 @@
                     <input type="file" id="image" accept="image/*" onchange="setThumbnail(event);" />
                     <div id="image_container"></div>
 
-                    <script language="Javascript">
-                    function setThumbnail(event) {
-                                                    var reader = new FileReader();
-                                                    var limitedImgWidth = 50;
-                                                    var limitedImgHeight = 50;
-                                                    reader.onload = function(event)
-                                                    {var img = document.createElement("img");
-                                                    img.setAttribute("src", event.target.result);
-                                                    document.querySelector("div#image_container").appendChild(img);};
-                                                    reader.readAsDataURL(event.target.files[0]);
-                                                  }
+                    <script>
+                        function setThumbnail(event) {
+                            var reader = new FileReader();
+                            var limitedImgWidth = 50;
+                            var limitedImgHeight = 50;
+                            reader.onload = function(event) {
+                                var img = document.createElement("img");
+                                img.setAttribute("src", event.target.result);
+                                document.querySelector("div#image_container").innerHTML = ""; // Clear the contents of the image container
+                                document.querySelector("div#image_container").appendChild(img); // Add the new image
+                            };
+                            reader.readAsDataURL(event.target.files[0]);
+                            }
+
+
                     </script>
                     <button>
                         <div style="padding:3px;">
