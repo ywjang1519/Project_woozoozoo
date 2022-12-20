@@ -54,7 +54,7 @@ def upload():
         return render_template('check1.html')
 
     elif request.method == 'POST':
-        f = request.files['file']
+        f = request.files['data']
         # path='../save_img/'
         # os.mkdir(path)
         f.save(secure_filename(f.filename))

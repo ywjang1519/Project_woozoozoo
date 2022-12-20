@@ -107,7 +107,7 @@
                             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30b585e52755f68ff607943767063407&libraries=services,clusterer,drawing"></script>
                             <script>
                             var markers = [];
-
+                            var lx, ly;
                             var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                                 mapOption = {
                                     center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
@@ -125,33 +125,52 @@
 
                                     var lat = position.coords.latitude, // 위도
                                         lon = position.coords.longitude; // 경도
-
-                                    var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                                        // 인포윈도우에 표시될 내용입니다
+                                    lx = lat;
+                                    ly = lon;
+                                    var locPosition = new kakao.maps.LatLng(lx, ly), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                                        message = '<div style="padding:5px;">현재위치</div>'; // 인포윈도우에 표시될 내용입니다
 
                                     var places = new kakao.maps.services.Places();
 
                                     // 키워드로 장소를 검색합니다
                                     places.keywordSearch('동물병원', placesSearchCB, {
-                                    location: new kakao.maps.LatLng(lat, lon)
+                                    location: new kakao.maps.LatLng(lx, ly)
                                     });
 
-
                                     // 마커와 인포윈도우를 표시합니다
-                                    displayMarker(locPosition);
+                                    displayMarker(locPosition, message);
 
                                   });
 
-                            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+                             // 지도에 마커와 인포윈도우를 표시하는 함수입니다
+                                function displayMarker(locPosition, message) {
 
-                                var locPosition = new kakao.maps.LatLng(37.5666805, 126.9784147),
-                                    message = 'geolocation을 사용할수 없어요.'
+                                    // 마커를 생성합니다
+                                    var marker_present = new kakao.maps.Marker({
+                                        map: map,
+                                        position: locPosition
+                                    });
 
-                                displayMarker(locPosition, message);
+                                    var iwContent = message, // 인포윈도우에 표시할 내용
+                                        iwRemoveable = true;
+
+                                    // 인포윈도우를 생성합니다
+                                    var infowindow = new kakao.maps.InfoWindow({
+                                        content : iwContent,
+                                        removable : iwRemoveable
+                                    });
+
+                                    // 인포윈도우를 마커위에 표시합니다
+                                    infowindow.open(map, marker_present);
+
+                                    // 지도 중심좌표를 접속위치로 변경합니다
+                                    map.setCenter(locPosition);
+                                }
+
                             }
 
                             // 장소 검색 객체를 생성합니다
-                            var ps = new kakao.maps.services.Places();
+                            var places = new kakao.maps.services.Places();
 
                             // 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
                             var infowindow = new kakao.maps.InfoWindow({zIndex:1});
@@ -170,7 +189,10 @@
                                 }
 
                                 // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-                                ps.keywordSearch(keyword, placesSearchCB, {useMapBounds:true});
+                                places.keywordSearch(keyword, placesSearchCB, {
+                                radius : 2000,
+                                location: new kakao.maps.LatLng(lx, ly)
+                                });
                             }
 
                             // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -354,6 +376,7 @@
                                     el.removeChild (el.lastChild);
                                 }
                             }
+
                             var mapTypeControl = new kakao.maps.MapTypeControl();
                             map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 
