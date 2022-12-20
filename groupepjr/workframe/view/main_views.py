@@ -31,3 +31,7 @@ def upload():
 @bp.route('/test')
 def test():
     return render_template('test1.html')
+
+@bp.route('/tests')
+def tests():
+    return render_template('test2.html')

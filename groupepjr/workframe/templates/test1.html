@@ -127,7 +127,7 @@
                                         lon = position.coords.longitude; // 경도
 
                                     var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                                         // 인포윈도우에 표시될 내용입니다
+                                        // 인포윈도우에 표시될 내용입니다
 
                                     var places = new kakao.maps.services.Places();
 
@@ -170,7 +170,7 @@
                                 }
 
                                 // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-                                ps.keywordSearch(keyword, placesSearchCB);
+                                ps.keywordSearch(keyword, placesSearchCB, {useMapBounds:true});
                             }
 
                             // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
