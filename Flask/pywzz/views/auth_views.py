@@ -1,3 +1,4 @@
+import functools
 from flask import Blueprint,render_template,request,url_for,flash,session, g
 from pywzz.forms import UserCreateForm,UserLoginForm
 from pywzz import db
@@ -54,3 +55,13 @@ def load_logged_in_user():
 def logout():
     session.clear()
     return redirect(url_for('main.home'))
+
+
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(*args, **kwargs):
+        if g.user is None:
+            _next = request.url if request.method == 'GET' else ''
+            return redirect(url_for('auth.login', next=_next))
+        return view(*args, **kwargs)
+    return wrapped_view
