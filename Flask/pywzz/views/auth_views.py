@@ -40,10 +40,10 @@ def login():
             session['user_name'] = user.user_name
             session['user_id'] = user.user_key
             _next = request.args.get('next', '')
-            # if _next:
-            #     return redirect(_next)
-            # else:
-            #     return redirect(url_for('main.index'))
+            if _next:
+                return redirect(_next)
+            else:
+                return redirect(url_for('main.index'))
             return redirect(url_for('main.index'))
         flash(error)
     return render_template('auth/login_bts.html', form=form)
@@ -64,14 +64,14 @@ def logout():
     session.clear()
     return redirect(url_for('main.home'))
 
-# def login_required(view):
-#     @functools.wraps(view)
-#     def wrapped_view(*args, **kwargs):
-#         if g.user is None:
-#             _next = request.url if request.method == 'GET' else ''
-#             return redirect(url_for('auth.login', next=_next))
-#         return view(*args, **kwargs)
-#     return wrapped_view
+def login_required(view):
+    @functools.wraps(view)
+    def wrapped_view(*args, **kwargs):
+        if g.user is None:
+            _next = request.url if request.method == 'GET' else ''
+            return redirect(url_for('auth.login', next=_next))
+        return view(*args, **kwargs)
+    return wrapped_view
 
 # @bp.route('/pet_profile')
 # def pet_profile():

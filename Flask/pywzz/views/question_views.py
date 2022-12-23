@@ -7,7 +7,7 @@ from werkzeug.utils import redirect
 from pywzz import db
 from pywzz.forms import QuestionForm, AnswerForm, UserLoginForm
 from pywzz.models import Question, User
-from pywzz.views.auth_views import load_logged_in_user
+from pywzz.views.auth_views import load_logged_in_user ,login_required
 
 bp = Blueprint('question', __name__, url_prefix='/question')
 
@@ -27,7 +27,7 @@ def detail(question_id):
 
 
 @bp.route('/create/', methods=('GET', 'POST'))
-# @load_logged_in_user
+@login_required
 def create():
     form = QuestionForm()
     if request.method == 'POST' and form.validate_on_submit():
@@ -39,7 +39,7 @@ def create():
     return render_template('question/question_form.html', form=form)
 
 @bp.route('/modify/<int:question_id>', methods=('GET', 'POST'))
-# @login_required
+@login_required
 def modify(question_id):
     question = Question.query.get_or_404(question_id)
     if g.user != question.user:
@@ -58,8 +58,9 @@ def modify(question_id):
 
 
 @bp.route('/delete/<int:question_id>')
-# @login_required
+@login_required
 def delete(question_id):
+    print('input')
     question = Question.query.get_or_404(question_id)
     if g.user != question.user:
         flash('삭제권한이 없습니다')
