@@ -31,8 +31,8 @@ def detail(question_id):
 def create():
     form = QuestionForm()
     if request.method == 'POST' and form.validate_on_submit():
-        print(Question.user.user)
-        question = Question(subject=form.subject.data, content=form.content.data,create_date=datetime.now())
+        print(g.user)
+        question = Question(subject=form.subject.data, content=form.content.data,create_date=datetime.now(),user=g.user)
         db.session.add(question)
         db.session.commit()
         return redirect(url_for('question.list'))

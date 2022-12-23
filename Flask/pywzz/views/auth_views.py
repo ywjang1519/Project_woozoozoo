@@ -38,6 +38,7 @@ def login():
         if error is None:
             session.clear()
             session['user_name'] = user.user_name
+            session['user_id'] = user.user_key
             _next = request.args.get('next', '')
             # if _next:
             #     return redirect(_next)
@@ -51,10 +52,11 @@ def login():
 @bp.before_app_request
 def load_logged_in_user() :
     user_name = session.get('user_name')
+    user_id = session.get('user_id')
     if user_name is None:
         g.user = None
     else:
-        g.user = user_name
+        g.user = User.query.get(user_id)
         # g.user = User.query.get(user_id) 인데
 
 @bp.route('/logout/')

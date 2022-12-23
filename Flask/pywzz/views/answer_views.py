@@ -17,6 +17,7 @@ def create(question_id):
     form = AnswerForm()
     question = Question.query.get_or_404(question_id)
     if form.validate_on_submit():
+        print(g.user)
         content = request.form['content']
         answer = Answer(content=content, create_date=datetime.now(), user=g.user)
         question.answer_set.append(answer)
