@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'template.html' %}
 {% block content %}
 <div class="container my-3">
     <table class="table">
@@ -21,7 +21,7 @@
                 <span class="text-danger small mx-2">{{ question.answer_set|length }}</span>
                 {% endif %}
             </td>
-            <td>{{ question.user.username }}</td>
+            <td>{{ question.user.user_name }}</td>
             <td>{{ question.create_date|datetime }}</td>
         </tr>
         {% endfor %}
@@ -73,6 +73,7 @@
         {% endif %}
     </ul>
     <!-- 페이징처리 끝 -->
-    <a href="{{ url_for('question.create') }}" class="btn btn-primary">질문 등록하기</a>
+<!--    <button type="button" class="btn btn-outline-primary" href="{{ url_for('question.create') }}"> 질문 등록하기 </button>-->
+    <a href="{{ url_for('question.create') }}" class="btn btn-outline-primary">질문 등록하기</a>
 </div>
 {% endblock %}

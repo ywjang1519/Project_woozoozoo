@@ -1,23 +1,23 @@
 from datetime import datetime
 
-from flask import Blueprint, render_template, request, url_for, g, flash
+from flask import Blueprint, render_template, request, url_for, g, flash, session
+from sqlalchemy.sql.functions import user
 from werkzeug.utils import redirect
 
 from pywzz import db
-from pywzz.forms import QuestionForm, AnswerForm
-from pywzz.models import Question
-from pywzz.views.auth_views import login_required
+from pywzz.forms import QuestionForm, AnswerForm, UserLoginForm
+from pywzz.models import Question, User
+from pywzz.views.auth_views import load_logged_in_user
 
 bp = Blueprint('question', __name__, url_prefix='/question')
 
 
 @bp.route('/list/')
-def _list():
+def list():
     page = request.args.get('page', type=int, default=1)  # 페이지
     question_list = Question.query.order_by(Question.create_date.desc())
     question_list = question_list.paginate(page = page, per_page=10)
     return render_template('question/question_list.html', question_list=question_list)
-
 
 @bp.route('/detail/<int:question_id>/')
 def detail(question_id):
@@ -27,20 +27,19 @@ def detail(question_id):
 
 
 @bp.route('/create/', methods=('GET', 'POST'))
-@login_required
+# @load_logged_in_user
 def create():
     form = QuestionForm()
     if request.method == 'POST' and form.validate_on_submit():
-        question = Question(subject=form.subject.data, content=form.content.data,
-                            create_date=datetime.now(), user=g.user)
+        print(Question.user.user)
+        question = Question(subject=form.subject.data, content=form.content.data,create_date=datetime.now())
         db.session.add(question)
         db.session.commit()
-        return redirect(url_for('main.index'))
+        return redirect(url_for('question.list'))
     return render_template('question/question_form.html', form=form)
 
-
 @bp.route('/modify/<int:question_id>', methods=('GET', 'POST'))
-@login_required
+# @login_required
 def modify(question_id):
     question = Question.query.get_or_404(question_id)
     if g.user != question.user:
@@ -59,7 +58,7 @@ def modify(question_id):
 
 
 @bp.route('/delete/<int:question_id>')
-@login_required
+# @login_required
 def delete(question_id):
     question = Question.query.get_or_404(question_id)
     if g.user != question.user:
@@ -67,4 +66,4 @@ def delete(question_id):
         return redirect(url_for('question.detail', question_id=question_id))
     db.session.delete(question)
     db.session.commit()
-    return redirect(url_for('question._list'))
+    return redirect(url_for('question.list'))

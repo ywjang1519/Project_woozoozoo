@@ -1,14 +1,14 @@
 # 라이브러리 import단
-from flask import Blueprint, render_template, request, redirect, url_for, Flask
+from flask import Blueprint, render_template, request, redirect, url_for, session, g
 from werkzeug.utils import secure_filename
-from pywzz.forms import PetInfo,PetImg
-from pywzz.models import PetInfo,PetImg
+from pywzz.models import PetImg
+from pywzz import db
 import os
-import io
 from torchvision import transforms
 import torch
 from PIL import Image
-
+import cv2
+from .auth_views import load_logged_in_user
 #---------------------------------------
 # AI모델 구동 위한 부분
 model = torch.load('pywzz/model/model.pth',map_location='cpu')
@@ -46,27 +46,59 @@ bp = Blueprint('check', __name__, url_prefix='/check')
 
 @bp.route('/')
 def check():
-    return render_template('check1.html')
+    # @load_logged_in_user()
+    if g.user == None:
+        return redirect(url_for('auth.login'))
+    else:
+        return render_template('check/check.html')
 
 @bp.route('/upload', methods = ['GET', 'POST'])
 def upload():
+    # @load_logged_in_user()
     if request.method == 'GET':
-        return render_template('check1.html')
+        return redirect(url_for('check.check'))
 
     elif request.method == 'POST':
         f = request.files['data']
-        # path='../save_img/'
-        # os.mkdir(path)
-        f.save(secure_filename(f.filename))
-        return 'file upload successfully'
+        current_path=os.getcwd()
+        path=current_path+'/pywzz/tmp_img/'+g.user
+
+        os.makedirs(path,exist_ok=True)
+        f.save(path+'/'+secure_filename(f.filename))
+
+        petimage=PetImg(img=path+'/'+secure_filename(f.filename))
+        db.session.add(petimage)
+        db.session.commit()
+
+        return render_template('check/check_result.html', )
+        # return redirect(url_for('check.result'))
 
 @bp.route('/upload/<filename>')
 def upload_file():
-    filename=PetImg(img=form.img.data)
+    filename=PetImg.query.filter_by(img=form.img.data)
     db.session.add(filename)
     db.session.commit()
-    return redirect(url_for('check1_yw.html'))
+    return redirect(url_for('check/check.html'))
 
-@bp.route('/result')
+@bp.route('/result',methods = ['GET', 'POST'])
 def result():
-    return redirect(url_for('model_run'))
+    if request.method == 'GET':
+        # img_file=PetImg.query.filter_by(id=)
+        # print(img_file)
+        # model_run(img_file)
+        return render_template('check/check_result.html')
+    elif request.method == 'POST':
+        return redirect(url_for('model_run'))
+
+@bp.before_app_request
+def load_logged_in_image():
+    pet_image = session.get('image')
+    if pet_image is None:
+        g.pet_image = None
+    else:
+        g.pet_image = pet_image
+
+# @bp.before_app_request
+# def clear_page():
+#     session.clear()
+#     return render_template('check/check_result.html')

@@ -1,11 +1,11 @@
-import functools
 from flask import Blueprint,render_template,request,url_for,flash,session, g
-from pywzz.forms import UserCreateForm,UserLoginForm
+from pywzz.forms import UserCreateForm,UserLoginForm,PetInfoForm
 from pywzz import db
 from pywzz.models import User
 from datetime import datetime
 from werkzeug.utils import redirect
 from werkzeug.security import generate_password_hash, check_password_hash
+import functools
 
 bp=Blueprint('auth',__name__,url_prefix='/auth')
 
@@ -38,30 +38,39 @@ def login():
         if error is None:
             session.clear()
             session['user_name'] = user.user_name
+            _next = request.args.get('next', '')
+            # if _next:
+            #     return redirect(_next)
+            # else:
+            #     return redirect(url_for('main.index'))
             return redirect(url_for('main.index'))
         flash(error)
     return render_template('auth/login_bts.html', form=form)
 
 
 @bp.before_app_request
-def load_logged_in_user():
+def load_logged_in_user() :
     user_name = session.get('user_name')
     if user_name is None:
         g.user = None
     else:
         g.user = user_name
+        # g.user = User.query.get(user_id) 인데
 
 @bp.route('/logout/')
 def logout():
     session.clear()
     return redirect(url_for('main.home'))
 
+# def login_required(view):
+#     @functools.wraps(view)
+#     def wrapped_view(*args, **kwargs):
+#         if g.user is None:
+#             _next = request.url if request.method == 'GET' else ''
+#             return redirect(url_for('auth.login', next=_next))
+#         return view(*args, **kwargs)
+#     return wrapped_view
 
-def login_required(view):
-    @functools.wraps(view)
-    def wrapped_view(*args, **kwargs):
-        if g.user is None:
-            _next = request.url if request.method == 'GET' else ''
-            return redirect(url_for('auth.login', next=_next))
-        return view(*args, **kwargs)
-    return wrapped_view
+# @bp.route('/pet_profile')
+# def pet_profile():
+#     form=

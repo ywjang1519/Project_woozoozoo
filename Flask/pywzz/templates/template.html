@@ -65,7 +65,7 @@ img.emoji {
           href="https://themes.getbootstrap.com/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=3.8.1"
           type="text/css" media="all">
     <style id="woocommerce-inline-inline-css" type="text/css">
-.woocommerce form .form-row .required { visibility: visible; }
+<!-- delete -->
 
     </style>
     <link rel="stylesheet" id="dokan-fontawesome-css"
@@ -122,7 +122,10 @@ var dokan = {"ajaxurl":"https:\/\/themes.getbootstrap.com\/wp-admin\/admin-ajax.
 
 <!-- <div id="page" class="hfeed site"> -->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container"><a href="https://themes.getbootstrap.com" class="navbar-brand">WooZooZoo Care-bot</a>
+
+    <div class="container">
+
+        <a href="{{ url_for('main.home') }}" class="navbar-brand">WooZooZoo Care-bot</a>
         <div class="d-flex ml-auto">
             <ul class="navbar-nav d-lg-none">
             </ul>
@@ -130,36 +133,31 @@ var dokan = {"ajaxurl":"https:\/\/themes.getbootstrap.com\/wp-admin\/admin-ajax.
                     aria-controls="globalNavbar" aria-expanded="false" aria-label="Toggle navigation"><span
                     class="navbar-toggler-icon"></span></button>
         </div>
+
         <div class="collapse navbar-collapse" id="globalNavbar">
 
             <ul class="navbar-nav mr-auto order-1">
-                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="#"
-                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">피부 진단</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <div class="navbar-collapse navbar-top-collapse">
-                            <ul id="menu-top-menu" class="nav navbar-nav">
-                            </ul>
-                        </div>
-                    </div>
+                <!-- 왼쪽 - 피부진단, 병원찾기, 커뮤니티 -->
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" href="{{ url_for('check.upload') }}"
+                                                 data-toggle="" aria-haspopup="true" aria-expanded="false">피부 진단</a>
                 </li>
-                <!-- 병원찾기 -->
-                <li class="nav-item"><a class="nav-link" href="https://themes.getbootstrap.com/guide">병원 찾기 </a></li>
-<!--                <li class="nav-item"><a class="nav-link" href="https://themes.getbootstrap.com/guide">병원 찾기 </a></li>-->
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('map.map') }}">병원 찾기 </a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('question.list') }}"> 커뮤니티 </a></li>
             </ul>
 
-
+            <!-- 오른쪽 - 소개, 로그인 -->
             <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
-                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.home') }}">About us</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('main.home') }}">서비스 소개</a></li>
 
             {% if g.user %}
             <ul class="navbar-nav">
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{ url_for('auth.logout') }}">{{ g.user.user_name }} Logout </a>
-                </li>
+                <li class="nav-item "><a class="nav-link" href="{{ url_for('auth.logout') }}">로그아웃 </a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('main.profile') }}">프로필</a></li>
             </ul>
             {% else %}
-                <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.login') }}">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.signup') }}">Sign up</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.login') }}">로그인</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.signup') }}">회원가입</a></li>
             </ul>
             {% endif %}
 
@@ -172,119 +170,8 @@ var dokan = {"ajaxurl":"https:\/\/themes.getbootstrap.com\/wp-admin\/admin-ajax.
     </div>
 </nav>
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
-{% extends 'base.html' %}
 {% block content %}
-        <section id="about">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <div id="map" style="width:100%;height:350px;"></div>
-                            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=30b585e52755f68ff607943767063407&libraries=services,clusterer,drawing"></script>
-                            <script>
-                            // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-                            var infowindow = new kakao.maps.InfoWindow({zIndex:1});
-
-                            var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-                                mapOption = {
-                                    center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-                                    level: 3 // 지도의 확대 레벨
-                                };
-
-                            // 지도를 생성합니다
-                            var map = new kakao.maps.Map(mapContainer, mapOption);
-
-                            // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
-                            if (navigator.geolocation) {
-
-                                // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-                                navigator.geolocation.getCurrentPosition(function(position) {
-
-                                    var lat = position.coords.latitude, // 위도
-                                        lon = position.coords.longitude; // 경도
-
-                                    var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                                         // 인포윈도우에 표시될 내용입니다
-
-                                    var places = new kakao.maps.services.Places();
-
-                                    // 키워드로 장소를 검색합니다
-                                    places.keywordSearch('동물병원', placesSearchCB, {
-                                    location: new kakao.maps.LatLng(lat, lon)
-                                    });
-
-
-                                    // 마커와 인포윈도우를 표시합니다
-                                    displayMarker(locPosition);
-
-                                  });
-
-                            } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-
-                                var locPosition = new kakao.maps.LatLng(37.5666805, 126.9784147),
-                                    message = 'geolocation을 사용할수 없어요.'
-
-                                displayMarker(locPosition, message);
-                            }
-
-
-                            // 키워드 검색 완료 시 호출되는 콜백함수 입니다
-                            function placesSearchCB (data, status, pagination) {
-                                if (status === kakao.maps.services.Status.OK) {
-
-                                    // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-                                    // LatLngBounds 객체에 좌표를 추가합니다
-                                    var bounds = new kakao.maps.LatLngBounds();
-
-                                    for (var i=0; i<data.length; i++) {
-                                        displayMarker(data[i]);
-                                        bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-                                    }
-
-                                    // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-                                    map.setBounds(bounds);
-                                }
-                            }
-
-                            // 지도에 마커를 표시하는 함수입니다
-                            function displayMarker(place) {
-
-                                // 마커를 생성하고 지도에 표시합니다
-                                var marker = new kakao.maps.Marker({
-                                    map: map,
-                                    position: new kakao.maps.LatLng(place.y, place.x)
-                                });
-
-                                // 마커에 클릭이벤트를 등록합니다
-                                kakao.maps.event.addListener(marker, 'click', function() {
-                                    // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-                                    infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-                                    infowindow.open(map, marker);
-                                    var url='https://map.kakao.com/link/map/' + place.id;
-                                    window.open(url,'_blank');
-                                });
-                            }
-                            var mapTypeControl = new kakao.maps.MapTypeControl();
-                            map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-
-                            var zoomControl = new kakao.maps.ZoomControl();
-                            map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-
-                            </script>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        <script src="static/js/scripts.js"></script>
-        <df-messenger
-          intent="WELCOME"
-          chat-title="test"
-          agent-id="3a9f3839-06ab-45ec-9371-247ef237f25a"
-          language-code="ko">
-         <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-         </div>
-        </df-messenger>
+{% endblock %}
 <!-- 기본 템플릿 안에 삽입될 내용 End -->
 
-      </body>
-      {% endblock %}
-</html>
+</body>
