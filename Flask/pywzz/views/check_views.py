@@ -61,7 +61,7 @@ def upload():
     elif request.method == 'POST':
         f = request.files['data']
         current_path=os.getcwd()
-        path=current_path+'/pywzz/tmp_img/'+g.user
+        path=current_path+'/pywzz/tmp_img/'+str(g.user)
 
         os.makedirs(path,exist_ok=True)
         f.save(path+'/'+secure_filename(f.filename))
