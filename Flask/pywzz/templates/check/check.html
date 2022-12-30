@@ -25,12 +25,10 @@
                         <img src="{{ url_for('static', filename=obj.dir) }}" width="175" height="175">
                     </p>
                 {% endfor %}
-
                     <!-- Upload image file -->
                     <div style="padding:30px;">
                         <!-- <form action="http://127.0.0.1:5000/check/upload" method="POST" enctype="multipart/form-data"> -->
                         <form action="http://127.0.0.1:5000/check/upload" method="post" enctype="multipart/form-data">
-
                             <input type="file" id="file" name="data" accept="image/*"  onchange="setThumbnail(event);">
                             <input class type="submit" value="업로드">
                             <div id="image_container"></div>
@@ -45,40 +43,43 @@
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
-                        <h2>About this page</h2>
-                        <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-                        <ul>
-                            <li>Clickable nav links that smooth scroll to page sections</li>
-                            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-                        </ul>
+                        <h2> About this Service </h2>
+                        <p class="lead">
+                        1. [파일 선택] 클릭 후, 사진을 넣으세요  <br>
+                        2. [업로드] 클릭 하시면, 결과 페이지로 넘어가요! <br>
+                        </p>
+<!--                        <ul>-->
+<!--                            <li>Clickable nav links that smooth scroll to page sections</li>-->
+<!--                            <li>Responsive behavior when clicking nav links perfect for a one page website</li>-->
+<!--                            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>-->
+<!--                            <li>Minimal custom CSS so you are free to explore your own unique design options</li>-->
+<!--                        </ul>-->
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Services section-->
-        <section class="bg-light" id="services">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Services we offer</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact section-->
-        <section id="contact">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Contact us</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!--        &lt;!&ndash; Services section&ndash;&gt;-->
+<!--        <section class="bg-light" id="services">-->
+<!--            <div class="container px-4">-->
+<!--                <div class="row gx-4 justify-content-center">-->
+<!--                    <div class="col-lg-8">-->
+<!--                        <h2>Services we offer</h2>-->
+<!--                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
+<!--        &lt;!&ndash; Contact section&ndash;&gt;-->
+<!--        <section id="contact">-->
+<!--            <div class="container px-4">-->
+<!--                <div class="row gx-4 justify-content-center">-->
+<!--                    <div class="col-lg-8">-->
+<!--                        <h2>Contact us</h2>-->
+<!--                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </section>-->
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; 반려동물 피부질환 검색기</p></div>
@@ -98,8 +99,8 @@
         <script>
             function setThumbnail(event) {
             var reader = new FileReader();
-            var limitedImgWidth = 500; // 이미지 가로 크기
-            var limitedImgHeight = 500; // 이미지 세로 크기
+            var limitedImgWidth = 200; // 이미지 가로 크기
+            var limitedImgHeight = 200; // 이미지 세로 크기
             var img = document.createElement("img"); // 이미지 불러오기
             img.setAttribute("width", limitedImgWidth); // 이미지 기로 조절
             img.setAttribute("height", limitedImgHeight); // 이미지 세로 조절

@@ -40,6 +40,10 @@
                     <div class="mb-2">modified at</div>
                     <div>{{ answer.modify_date|datetime }}</div>
                 </div>
+                    <div class="badge bg-light text-dark p-2 text-start mx-3">
+                    <div class="mb-2">modified at</div>
+                    <div>{{ answer.user.user_name }}</div>
+                </div>
                 {% endif %}
                 <div class="badge bg-light text-dark p-2 text-start">
                     <div class="mb-2">{{ answer.user.username }}</div>
@@ -63,7 +67,7 @@
         {% include "form_errors.html" %}
         <div class="mb-3">
             <label for="content">답변 내용</label>
-            <textarea {% if not g.user %}disabled{% endif %}
+            <textarea {% if not question.user.user_name %}disabled{% endif %}
                       name="content" id="content" class="form-control" rows="10"></textarea>
         </div>
         <input type="submit" value="답변등록" class="btn btn-primary">

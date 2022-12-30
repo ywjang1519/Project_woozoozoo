@@ -46,3 +46,21 @@ class Answer(db.Model):
     create_date = db.Column(db.DateTime(), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_key', ondelete='CASCADE'), nullable=True, server_default='1')
     user = db.relationship('User', backref=db.backref('answer_set'))
+
+class Disease(db.Model):
+    __table_name__ = 'disease'
+
+    disease_id=db.Column(db.Integer, primary_key=True)
+    disease_category=db.Column(db.String(200), nullable=True)
+    disease_name=db.Column(db.String(200), nullable=True)
+    disease_content=db.Column(db.String(100), nullable=True)
+    disease_cause=db.Column(db.String(200), nullable=True)
+    disease_solution=db.Column(db.String(500), nullable=True)
+
+class RealTime(db.Model):
+    __table_name__='realtime'
+
+    product_id = db.Column(db.Integer, primary_key=True)
+    product_category = db.Column(db.String(100), nullable=True)
+    product_name=db.Column(db.String(100), nullable=True)
+    product_url=db.Column(db.String(1500), nullable=True)

@@ -9,14 +9,12 @@
             <div class="row">
                 <div class="container container--xs">
                     <div class="woocommerce">
-
-
                         <div id="signup_div_wrapper">
                             <img class="img-fluid mx-auto d-block mb-3"
-                                 src="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/elements/bootstrap-logo.svg"
+                                 src="../../static/assets/img/logo/wzz_logo.png"
                                  alt="">
                             <h1 class="mb-1 text-center">Want to Sign up? </h1>
-                            <p class="fs-14 text-gray text-center mb-5">if you want to check your lovely pet, please become our family ♥</p>
+<!--                            <p class="fs-14 text-gray text-center mb-5">if you want to check your lovely pet, please become our family ♥</p>-->
                             <form method="post" class="register">
 
                                 {{ form.csrf_token }}
@@ -96,12 +94,10 @@
                                        name="register" value="Sign Up">
                                 <div class="invalid-feedback">This field is required</div>
                                 </p>
-
                             </form>
 
                             <p class="text-gray-soft text-center large mb-2">Already have an account? <a
                                     href="{{ url_for('auth.login') }}">Login</a></p>
-
                         </div>
                     </div>
                 </div>
@@ -116,22 +112,7 @@
         <div class="footer__inner">
             <div class="footer__item d-lg-flex justify-content-lg-between align-items-lg-center">
                 <ul id="menu-seller-footer" class="nav sub-nav footer__sub-nav">
-                    <li id="menu-item-1333"
-                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1333"><a
-                            title="Help Center" href="https://themes.zendesk.com/hc/en-us">Help Center</a></li>
-                    <li id="menu-item-1335"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1335"><a
-                            title="Terms of Service" href="https://themes.getbootstrap.com/terms/">Terms of Service</a>
-                    </li>
-                    <li id="menu-item-1334"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1334"><a
-                            title="Licenses" href="https://themes.getbootstrap.com/licenses/">Licenses</a></li>
-                    <li id="menu-item-49443"
-                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49443"><a
-                            title="Sell Themes" href="https://themes.getbootstrap.com/sell/">Sell Themes</a></li>
                 </ul>
-                <p class="hidden-sm-down d-none d-lg-block">Trying to redownload a theme? Use our <a
-                        href="https://themes.getbootstrap.com/redownload/">redownload page.</a></p>
             </div>
         </div>
     </div>

@@ -9,15 +9,15 @@
     <link rel="pingback" href="https://themes.getbootstrap.com/xmlrpc.php">
 
     <link rel="apple-touch-icon" sizes="180x180"
-          href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/apple-touch-icon.png">
+          href="../../static/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" sizes="32x32"
-          href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-32x32.png">
+          href="../../static/assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16"
-          href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon-16x16.png">
+          href="../../static/assets/img/favicon-16x16.png">
     <link rel="manifest"
           href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/manifest.json">
     <link rel="shortcut icon"
-          href="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/favicon.ico">
+          href="../../static/assets/img/favicon.ico">
     <meta name="msapplication-config"
           content="https://themes.getbootstrap.com/wp-content/themes/bootstrap-marketplace/assets/images/fav/browserconfig.xml">
 
@@ -148,7 +148,8 @@ var dokan = {"ajaxurl":"https:\/\/themes.getbootstrap.com\/wp-admin\/admin-ajax.
             <!-- 오른쪽 - 소개, 로그인 -->
             <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.home') }}">서비스 소개</a></li>
+<!--                    <a class="nav-link" href="{{ url_for('main.about') }}#about">서비스 소개</a></li>-->
+                    <a class="nav-link" href="{{ url_for('main.about') }}">서비스 소개</a></li>
 
             {% if g.user %}
             <ul class="navbar-nav">

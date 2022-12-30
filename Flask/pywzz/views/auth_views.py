@@ -46,6 +46,7 @@ def login():
                 return redirect(url_for('main.index'))
             return redirect(url_for('main.index'))
         flash(error)
+
     return render_template('auth/login_bts.html', form=form)
 
 
@@ -56,22 +57,23 @@ def load_logged_in_user() :
     if user_name is None:
         g.user = None
     else:
-        g.user = User.query.get(user_id)
-        # g.user = User.query.get(user_id) 인데
+        # g.user = User.query.get(user_id)
+        g.user_id=user_id
+        g.user = user_name
 
 @bp.route('/logout/')
 def logout():
     session.clear()
     return redirect(url_for('main.home'))
 
-def login_required(view):
-    @functools.wraps(view)
-    def wrapped_view(*args, **kwargs):
-        if g.user is None:
-            _next = request.url if request.method == 'GET' else ''
-            return redirect(url_for('auth.login', next=_next))
-        return view(*args, **kwargs)
-    return wrapped_view
+# def login_required(view):
+#     @functools.wraps(view)
+#     def wrapped_view(*args, **kwargs):
+#         if g.user is None:
+#             _next = request.url if request.method == 'GET' else ''
+#             return redirect(url_for('auth.login', next=_next))
+#         return view(*args, **kwargs)
+#     return wrapped_view
 
 # @bp.route('/pet_profile')
 # def pet_profile():

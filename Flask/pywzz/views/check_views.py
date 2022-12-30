@@ -1,7 +1,7 @@
 # 라이브러리 import단
 from flask import Blueprint, render_template, request, redirect, url_for, session, g
 from werkzeug.utils import secure_filename
-from pywzz.models import PetImg
+from pywzz.models import PetImg,Disease
 from pywzz import db
 import os
 from torchvision import transforms
@@ -25,12 +25,17 @@ def transform_image(img_file):
     return transform_image(img).unsqueeze(0)
 
 def model_run(img_file):
-    class_model = ['구진/플라크','비듬/각질/상피성잔고리','태선화/과다색소침착','농포/여드름','미란/궤양','결절,종괴']
+    #class_model = ['구진/플라크','비듬/각질/상피성잔고리','태선화/과다색소침착','농포/여드름','미란/궤양','결절,종괴']
     img_tensor = transform_image(img_file)
     with torch.no_grad():
         outputs = model(img_tensor)
         _, preds = torch.max(outputs, 1)
-    return class_model[preds]
+
+        # DB테이블에서 증상 가져오기
+        disease_category = Disease.query.filter_by(disease_id=int(preds)+1).\
+            with_entities(Disease.disease_category,Disease.disease_name,Disease.disease_content,Disease.disease_cause,Disease.disease_solution).first()
+
+    return disease_category
 
 #-------------------------------------
 # 이미지 파일 처리 위한 부분
@@ -60,24 +65,29 @@ def upload():
 
     elif request.method == 'POST':
         f = request.files['data']
-        current_path=os.getcwd()
-        path=current_path+'/pywzz/tmp_img/'+g.user
+        # current_path=os.getcwd()
+        path='pywzz/static/pet_img/'+str(g.user)
+        send_name= 'pet_img/'+g.user+'/' + secure_filename(f.filename)
+        f_name=path + '/' + secure_filename(f.filename)
 
         os.makedirs(path,exist_ok=True)
-        f.save(path+'/'+secure_filename(f.filename))
+        f.save(f_name)
 
         petimage=PetImg(img=path+'/'+secure_filename(f.filename))
         db.session.add(petimage)
         db.session.commit()
 
-        return render_template('check/check_result.html', )
+        return render_template('check/check_result.html',pet_name="시월이",send_name=send_name, model_run=model_run(f_name))
         # return redirect(url_for('check.result'))
+        # return model_run(petimage.img)
 
 @bp.route('/upload/<filename>')
 def upload_file():
     filename=PetImg.query.filter_by(img=form.img.data)
     db.session.add(filename)
     db.session.commit()
+
+    _next = request.args.get('next', '')
     return redirect(url_for('check/check.html'))
 
 @bp.route('/result',methods = ['GET', 'POST'])
@@ -87,16 +97,26 @@ def result():
         # print(img_file)
         # model_run(img_file)
         return render_template('check/check_result.html')
+
     elif request.method == 'POST':
-        return redirect(url_for('model_run'))
+        user = User.query.filter_by(user_name=form.username.data).first()
+        return redirect(url_for('check.model_run'))
 
 @bp.before_app_request
-def load_logged_in_image():
-    pet_image = session.get('image')
-    if pet_image is None:
-        g.pet_image = None
+def authenticate():
+    # request.authorization username이 있는 경우 g.user에 할당
+    g.user = 'Anonymous' if not request.authorization else request.authorization['username']
+    g.petimg = 'Anonymous' if not request.authorization else request.authorization['pet_image']
+    g.model_run = 'Anonymous' if not request.authorization else request.authorization['model_run']
+
+@bp.before_app_request
+def load_logged_in_user() :
+    user_name = session.get('user_name')
+    if user_name is None:
+        g.user = None
     else:
-        g.pet_image = pet_image
+        g.user = user_name
+        # g.user = User.query.get(user_id) 인데
 
 # @bp.before_app_request
 # def clear_page():

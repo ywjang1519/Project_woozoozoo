@@ -6,20 +6,17 @@ from werkzeug.utils import redirect
 from pywzz import db
 from pywzz.forms import AnswerForm
 from pywzz.models import Question, Answer
-from pywzz.views.auth_views import login_required
 
 bp = Blueprint('answer', __name__, url_prefix='/answer')
 
 
 @bp.route('/create/<int:question_id>', methods=('POST',))
-@login_required
 def create(question_id):
     form = AnswerForm()
     question = Question.query.get_or_404(question_id)
     if form.validate_on_submit():
-        print(g.user)
         content = request.form['content']
-        answer = Answer(content=content, create_date=datetime.now(), user=g.user)
+        answer = Answer(content=content, create_date=datetime.now(), user_id=g.user_id)
         question.answer_set.append(answer)
         db.session.commit()
         return redirect(url_for('question.detail', question_id=question_id))
@@ -27,7 +24,6 @@ def create(question_id):
 
 
 @bp.route('/modify/<int:answer_id>', methods=('GET', 'POST'))
-@login_required
 def modify(answer_id):
     answer = Answer.query.get_or_404(answer_id)
     if g.user != answer.user:
@@ -46,9 +42,7 @@ def modify(answer_id):
 
 
 @bp.route('/delete/<int:answer_id>')
-@login_required
 def delete(answer_id):
-    print(answer_id)
     answer = Answer.query.get_or_404(answer_id)
     question_id = answer.question.id
     if g.user != answer.user:
