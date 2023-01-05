@@ -1,0 +1,70 @@
+from datetime import datetime
+
+from flask import Blueprint, render_template, request, url_for, g, flash, session
+from sqlalchemy.sql.functions import user
+from werkzeug.utils import redirect
+
+from pywzz import db
+from pywzz.forms import QuestionForm, AnswerForm, UserLoginForm
+from pywzz.models import Question, User
+from pywzz.views.auth_views import load_logged_in_user
+
+bp = Blueprint('question', __name__, url_prefix='/question')
+
+
+@bp.route('/list/')
+def list():
+    if g.user == None:
+        return redirect(url_for('auth.login'))
+    else:
+        page = request.args.get('page', type=int, default=1)  # 페이지
+        question_list = Question.query.order_by(Question.create_date.desc())
+        question_list = question_list.paginate(page = page, per_page=10)
+        return render_template('question/question_list.html', question_list=question_list)
+
+@bp.route('/detail/<int:question_id>/')
+def detail(question_id):
+    form = AnswerForm()
+    question = Question.query.get_or_404(question_id)
+    return render_template('question/question_detail.html', question=question, form=form)
+
+
+@bp.route('/create/', methods=('GET', 'POST'))
+def create():
+    form = QuestionForm()
+    if request.method == 'POST' and form.validate_on_submit():
+        print(g.user,type(g.user))
+        question = Question(subject=form.subject.data, content=form.content.data,create_date=datetime.now(),user_id=g.user_id)
+        db.session.add(question)
+        db.session.commit()
+        return redirect(url_for('question.list'))
+    return render_template('question/question_form.html', form=form)
+
+@bp.route('/modify/<int:question_id>', methods=('GET', 'POST'))
+def modify(question_id):
+    question = Question.query.get_or_404(question_id)
+    if g.user != question.user:
+        flash('수정권한이 없습니다')
+        return redirect(url_for('question.detail', question_id=question_id))
+    if request.method == 'POST':  # POST 요청
+        form = QuestionForm()
+        if form.validate_on_submit():
+            form.populate_obj(question)
+            question.modify_date = datetime.now()  # 수정일시 저장
+            db.session.commit()
+            return redirect(url_for('question.detail', question_id=question_id))
+    else:  # GET 요청
+        form = QuestionForm(obj=question)
+    return render_template('question/question_form.html', form=form)
+
+
+@bp.route('/delete/<int:question_id>')
+def delete(question_id):
+    print('input')
+    question = Question.query.get_or_404(question_id)
+    if g.user != question.user:
+        flash('삭제권한이 없습니다')
+        return redirect(url_for('question.detail', question_id=question_id))
+    db.session.delete(question)
+    db.session.commit()
+    return redirect(url_for('question.list'))

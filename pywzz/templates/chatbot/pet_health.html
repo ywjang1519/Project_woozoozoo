@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)https://www.animal.go.kr/front/community/show.do?boardId=contents&seq=105&menuNo=5000000013 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>
+
+
+
+
+
+
+
+
+
+
+동물보호관리시스템
+
+	
+		
+	
+		
+		&nbsp;건강정보
+		
+	
+
+</title>
+<script type="text/javascript" src="./pet_health_files/homepage.common.js.다운로드"></script>
+
+
+
+
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<script>
+var contextPath = "/front";
+function getModeCookie(name) {
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+        if (cookies[i].indexOf("=") == -1) {
+            if (name == cookies[i])
+                return "";
+        } else {
+            var crumb = cookies[i].split("=");
+            if (name == crumb[0].trim())
+                return unescape(crumb[1].trim());
+        }
+    }
+};
+var desktopModeTF = getModeCookie("DesktopMode");
+var Scale = getModeCookie("DesktopModeScale");
+var defWidth = 1250;
+if (desktopModeTF == "true") {
+    document
+            .write('<meta name="viewport" content="width='+defWidth+', user-scalable=yes, initial-scale='+Scale+'">');
+} else {
+    document
+            .write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">');
+}
+function desktopMode() {
+    if(getModeCookie("DesktopMode") == "true"){
+        setModeCookie(false);
+    }else{
+        setModeCookie(true);
+        window.scrollTo(0, 0);
+    }
+    location.reload();
+
+}
+function setModeCookie(switchOn){
+    var now = new Date();
+    var time = now.getTime();
+    time += 3600 * 1000;
+    now.setTime(time);
+    document.cookie ='DesktopMode='+switchOn +';';// expires=' + now.toUTCString() ;
+    if(switchOn){
+        document.cookie = "DesktopModeScale=" + $('html').width() / defWidth +';';// expires=' + now.toUTCString();
+    }
+}
+</script><meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+<script type="text/javascript" src="./pet_health_files/jquery-1.7.2.min.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/jquery-ui-1.8.20.custom.min.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/jquery.form.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/jquery.blockUI.custom.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/jquery.timer.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/application.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/ko.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/menu.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/jquery.json-2.2.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/json.min.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/jquery.smartPop.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/jcarousellite_1.0.1.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/jquery.mousewheel.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/form.js.다운로드"></script>
+
+<link rel="stylesheet" href="./pet_health_files/common.css">
+<link rel="stylesheet" href="./pet_health_files/sub.css">
+<link rel="stylesheet" href="./pet_health_files/bbs.css">
+<script type="text/javascript" src="./pet_health_files/jquery-1.11.0.min.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/common.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/main.js.다운로드"></script>
+
+
+
+
+<style type="text/css">#_copy{align-items:center;background:#4494d5;border-radius:3px;color:#fff;cursor:pointer;display:flex;font-size:13px;height:30px;justify-content:center;position:absolute;width:60px;z-index:1000}#select-tooltip,#sfModal,.modal-backdrop,div[id^=reader-helper]{display:none!important}.modal-open{overflow:auto!important}._sf_adjust_body{padding-right:0!important}.super_copy_btns_div{position:fixed;width:154px;left:10px;top:45%;background:#e7f1ff;border:2px solid #4595d5;font-weight:600;border-radius:2px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;z-index:5000}.super_copy_btns_logo{width:100%;background:#4595d5;text-align:center;font-size:12px;color:#e7f1ff;line-height:30px;height:30px}.super_copy_btns_btn{display:block;width:128px;height:28px;background:#7f5711;border-radius:4px;color:#fff;font-size:12px;border:0;outline:0;margin:8px auto;font-weight:700;cursor:pointer;opacity:.9}.super_copy_btns_btn:hover{opacity:.8}.super_copy_btns_btn:active{opacity:1}</style></head>
+<body>
+<div id="wrap">
+
+	<!-- 헤더 영역 시작 -->
+	
+
+
+
+
+
+
+
+
+ 
+
+
+<style>
+.box {padding: 20px;}
+
+.pull {position:absolute; margin: 6px 500px 0px; padding: 0px; width:343px; height:20px; color: #FFF; border-radius: 10px; background-color: #000; z-index:1000000; text-align:center; font-size:13px;}
+.pull:after {content:""; position: absolute; top: 21px; right: -30px; border-left: 30px solid #000; border-top: 10px solid transparent; border-bottom: 10px solid transparent;}
+
+.pull.rd {background-color: #808285;}
+.pull.rd:after {content:""; position: absolute; top: -16px; right: 163px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 8px solid #808285; z-index:1000000; }
+
+
+.pull.gr {background-color: #22ac38;}
+.pull.gr:after {content:""; position: absolute; right: 100px; top: 100px; border-left: 20px solid transparent; border-right: 20px solid transparent; border-top: 30px solid #22ac38;}
+
+.printtxt {display:none;}
+
+@media only screen and (max-width:768px){
+.pull.rd {background-color: #194b82; display:none;}
+.pull.rd:after {content:""; position: absolute; top: -16px; right: 194px; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 8px solid #194b82; z-index:1000000; display:none;}
+.printtxt {display:block;}
+}
+
+</style>
+<script type="text/javascript">
+$(function() {
+    $('#pQuery_tmp').keypress(function(event) {
+        if(event.keyCode == 13){
+            fnBtnSearch();
+            return false;
+        }
+    });
+});
+
+    //통합검색
+    function fnBtnSearch(){
+        var pDbNo = $("#pDbNo").val();
+        var pQuery_tmp = $("#pQuery_tmp").val();
+     
+        if(pQuery_tmp == ""){
+            alert("검색어를 입력하세요.");
+            $("#pQuery_tmp").focus();
+            return false;
+        }
+        
+        //jyj 2019.07.26 특수문자 입력 체크 로직 추가
+        if(isIncludeSpecialChar($("#pQuery_tmp").val())){
+            alert('검색어는 특수문자를 입력할 수 없습니다.');
+            $("#pQuery_tmp").focus();
+            return;
+        }
+        
+        if(searchFrmHeader(pQuery_tmp) == true){
+            $("#pQuery_tmp").val("");
+        }
+        /*$("#pQuery").val(replaceXSS( "I" , pQuery_tmp));
+        $("#searchFrmHeader").attr("onsubmit","");
+        $("#searchFrmHeader").attr("action","/itrinity/search.s");
+        $("#searchFrmHeader").attr("target","_blank");
+        $("#searchFrmHeader").submit();
+        */
+        
+        
+    }
+    
+    function searchFrmHeader(pQuery_tmp){
+        $("#pQuery").val(replaceXSS( "I" , pQuery_tmp));
+        $("#searchFrmHeader").attr("onsubmit","");
+        $("#searchFrmHeader").attr("action","/itrinity/search.s");
+        $("#searchFrmHeader").attr("target","_blank");
+        $("#searchFrmHeader").submit();
+        
+        return true;
+    }
+
+    //RFID검색
+    function fnBtnRfid(){
+        var searchType = $("#searchType").val();
+        var searchText = $("#searchText").val();
+
+        if(searchText == ""){
+            alert("등록번호, RFID를 입력하세요.1");
+            $("#searchText").focus();
+            return false;
+        }
+        $("#searchFrmHeader").attr("onsubmit","");
+        $("#searchFrmHeader").attr("action","/front/awtis/record/searchRrecordConfirm.do");
+        $("#searchFrmHeader").submit();
+    }
+    
+    function openRegAnimalModify(){
+        window.open("/front/popup_reg_animal_modify.do","popup_open","left=100, top=100,width=970,height=600, toolbar=no, menubar=no, statusbar=no, scrollbars=yes, resizable=no");
+    }
+    
+    function subName(str){
+        var substr = '';
+        if(str.length > 13){
+            substr = str.substr(0,13)+'...';
+        }else{
+            substr = str;   
+        }
+        return substr;
+    }
+
+</script>
+
+<!-- HEADER -->
+   <!-- UTILL -->
+    <div id="top_wrap">
+  		<h1 style="display:none">로그인 및 시스템 이동  영역</h1>
+        <a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=105&amp;menuNo=5000000013#content" id="skipnavi">본문 바로가기</a>
+        <div id="top">
+            <ul class="utill-left">
+             <li class="first"><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=53&amp;menuNo=1000000058" class="adoptLink">반려동물 입양안내 바로가기</a></li>
+             
+             <li style="margin-right:5px;">
+                
+                <a href="https://www.animal.go.kr/login/login_index.jsp" class="adoptLink2" target="_blank">공무원, 대행기관 로그인 바로가기</a>
+                
+             </li>
+             <li class="last"><a href="https://www.animal.go.kr/aec/" class="adoptLink3" target="_blank">동물실험윤리위원회 바로가기</a></li>
+            </ul>
+            <ul class="utill">
+            
+            
+            
+                <li class="first"><a href="https://www.animal.go.kr/front/awtis/login/login.do?menuNo=8000200006" class="loginBtn">로그인</a></li>
+                <li><a href="https://www.animal.go.kr/front/awtis/join/joinInfo.do?menuNo=8000200008" class="joinBtn">회원가입</a></li>
+                <li><a href="https://www.animal.go.kr/front/awtis/join/idPwdFind.do?menuNo=8000300006" class="idFind">아이디/비밀번호 찾기</a></li>
+            
+            
+            <li class="last"><a href="http://sup2.meatwatch.go.kr/?menuNo=8000300010" target="_blank" title="원격지원서비스" style="font-size:12px; color:#194b82;">원격지원</a></li>
+            </ul>
+            <span class="utillBtn">회원메뉴</span>
+        </div>
+    </div>
+    <!-- UTILL -->
+
+    <!-- LOGO -->
+    <div id="logo_wrap">
+        <h1><a href="https://www.animal.go.kr/front/index.do" title="메인페이지로 이동">동물보호관리시스템</a></h1>
+        <ul class="animalInfoChange">
+        	<li class="first last"><input type="button" value="등록동물정보 연결 및 변경방법" onclick="openRegAnimalModify();" title="새 창 열림"></li>
+        </ul>
+        <ul class="headerMenu">
+            
+            
+            <li class="first"><a href="https://www.animal.go.kr/front/awtis/mypage/jusoChangeList.do?menuNo=8000300008" class="menu01">주소변경온라인 신청하기</a></li>
+            
+            <li class="last"><a href="https://www.animal.go.kr/front/awtis/mypage/registAnimalList.do?menuNo=8000300009" class="menu02">등록동물정보변경/등록증출력<br><span class="printtxt" style="font-size: 10px; line-height:12px;">(주민등록번호 입력 및 본인인증을 마친<br> 동물소유자 본인만 가능)</span></a></li>
+            
+        </ul>
+        
+        <form id="searchFrmHeader" name="searchFrmHeader" action="https://www.animal.go.kr/itrinity/search.s" method="post">
+            <span class="top_search">
+                <select name="pDbNo" id="pDbNo" class="search_sbox" title="검색항목선택">
+                    <option value="">전체</option>
+                    <option value="1">법령및정책</option>
+                    <option value="2">정보공개</option>
+<!--                     <option value="3">정책정보</option> -->
+                    <option value="4">농장동물자료마당</option>
+                    <option value="5">교육안내</option>
+                    <option value="6">공지사항</option>
+                </select>
+                <input type="text" name="pQuery_tmp" id="pQuery_tmp" maxlength="25" value="" title="검색어입력"> 
+                <input type="hidden" name="pQuery" id="pQuery">
+                <input type="hidden" name="pQuery" id="pQuery_my">
+                <input type="button" value="" class="t_search02" onclick="fnBtnSearch()" title="검색어 검색(새 창 열림)">
+            </span>
+        </form>
+        <div class="pull rd">주민등록번호 입력 및 본인인증을 마친 동물소유자 본인만 가능</div>
+        <span class="allMenu">전체메뉴</span>
+    </div>
+    <!-- LOGO -->
+
+    <!-- GNB -->
+    <div id="gnb_wrap">
+        <h2 class="hide">주메뉴</h2>
+        <div class="snbBox" style="display: none;">
+            <p style="display: none;">전체메뉴</p>
+            <span class="allMenu_close" style="display: none;">닫기</span>
+        </div>
+        <div id="gnb">
+            <ul>
+            
+            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li id="navi0" class="first">
+                    
+                        
+                            <a href="https://www.animal.go.kr/front/awtis/public/publicList.do?menuNo=1000000055" id="mImgNavi0">유실유기동물</a>
+                        
+                        
+                        
+                        
+                    
+                        
+                        
+                            <ul class="submenu" style="display: none;">
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="first"><a href="https://www.animal.go.kr/front/awtis/public/publicList.do?menuNo=1000000055">공고</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/protection/protectionList.do?menuNo=1000000060">보호중 동물</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/institution/institutionList.do?menuNo=1000000059">동물보호센터</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=53&amp;menuNo=1000000058">입양 안내</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=209&amp;menuNo=1000000056">습득시 안내</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="last"><a href="https://www.animal.go.kr/front/awtis/loss/lossList.do?menuNo=1000000057">분실신고</a></li>
+                        		
+                        	
+                        
+                        
+                            </ul>
+                        
+                    
+                </li>   
+            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li id="navi1">
+                    
+                        
+                            <a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=66&amp;menuNo=2000000016" id="mImgNavi1">동물등록</a>
+                        
+                        
+                        
+                        
+                    
+                        
+                        
+                            <ul class="submenu" style="display: none;">
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="first"><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=66&amp;menuNo=2000000016">동물등록제란?</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/record/recordConfirmList.do?menuNo=2000000011">등록동물검색</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+		                            <li><a href="https://eminwon.qia.go.kr/intro/Quarantine/MicronoSearch.jsp?menuNo=2000000017" target="_blank">해외동물등록번호 조회</a></li>
+                        		
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="last"><a href="https://www.animal.go.kr/front/awtis/record/recordAgencyList.do?menuNo=2000000002">등록대행업체</a></li>
+                        		
+                        	
+                        
+                        
+                            </ul>
+                        
+                    
+                </li>   
+            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li id="navi2">
+                    
+                        
+                            <a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=144&amp;menuNo=3000000017" id="mImgNavi2">농장동물</a>
+                        
+                        
+                        
+                        
+                    
+                        
+                        
+                            <ul class="submenu" style="display: none;">
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="first"><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=144&amp;menuNo=3000000017">농장동물 복지 개요</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=170&amp;menuNo=3000000018">동물복지축산농장 인증제</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=79&amp;menuNo=3000000019">동물복지축산농장 인증 절차</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=131&amp;menuNo=3000000020">동물복지축산농장 인증 표시</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/certification/certificationList.do?menuNo=3000000012">동물복지축산농장 검색</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/index.do?boardId=boardID04&amp;menuNo=3000000021">동물복지축산농장 자료실</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/farm/saleList.do?menuNo=3000000022">동물복지축산물 판매처</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="last"><a href="https://www.animal.go.kr/front/awtis/farm/dealList.do?menuNo=3000000025">동물복지축산물 농장 직거래</a></li>
+                        		
+                        	
+                        
+                        
+                            </ul>
+                        
+                    
+                </li>   
+            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li id="navi3">
+                    
+                        
+                            <a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=1&amp;menuNo=4000000028" id="mImgNavi3">TNR</a>
+                        
+                        
+                        
+                        
+                    
+                        
+                        
+                            <ul class="submenu" style="display: none;">
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="first"><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=1&amp;menuNo=4000000028">길고양이 중성화 사업</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="last"><a href="https://www.animal.go.kr/front/awtis/roadCat/roadCatList.do?menuNo=4000000027">길고양이 중성화사업(TNR) 조회</a></li>
+                        		
+                        	
+                        
+                        
+                            </ul>
+                        
+                    
+                </li>   
+            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li id="navi4">
+                    
+                        
+                            <a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=92&amp;menuNo=5000000001" id="mImgNavi4">정보마당</a>
+                        
+                        
+                        
+                        
+                    
+                        
+                        
+                            <ul class="submenu" style="display: none;">
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="first"><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=92&amp;menuNo=5000000001">일반정보</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=105&amp;menuNo=5000000013">건강정보</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/relevant/relevantList.do?menuNo=5000000014">동물보호 업무 부서</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+		                            <li><a href="https://www.epeople.go.kr/?menuNo=5000000015" target="_blank">온라인 민원신청</a></li>
+                        		
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/faq/faqList.do?menuNo=5000000016">동물등록 FAQ</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=310105&amp;menuNo=5000000017">무선식별장치 공급업체</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="last"><a href="https://www.animal.go.kr/front/community/index.do?boardId=boardID08&amp;menuNo=5000000018">동물복지 교육자료</a></li>
+                        		
+                        	
+                        
+                        
+                            </ul>
+                        
+                    
+                </li>   
+            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li id="navi5">
+                    
+                        
+                            <a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=118&amp;menuNo=6000000001" id="mImgNavi5">업체정보</a>
+                        
+                        
+                        
+                        
+                    
+                        
+                        
+                            <ul class="submenu" style="display: none;">
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="first"><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=118&amp;menuNo=6000000001">개요</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/shop/hospitalList.do?menuNo=6000000002">동물병원</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/shop/salesList.do?sWrkCd=C&amp;menuNo=6000000004">동물생산업</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/shop/salesList.do?sWrkCd=B&amp;menuNo=6000000005">동물수입업</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/shop/salesList.do?sWrkCd=A&amp;menuNo=6000000009">동물판매업</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/shop/salesList.do?sWrkCd=D&amp;menuNo=6000000010">동물전시업</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/shop/salesList.do?sWrkCd=E&amp;menuNo=6000000128">동물위탁관리업</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/shop/salesList.do?sWrkCd=G&amp;menuNo=6000000129">동물운송업</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/shop/salesList.do?sWrkCd=F&amp;menuNo=6000000130">동물미용업</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="last"><a href="https://www.animal.go.kr/front/awtis/shop/undertaker1List.do?menuNo=6000000131">동물장묘업</a></li>
+                        		
+                        	
+                        
+                        
+                            </ul>
+                        
+                    
+                </li>   
+            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li id="navi6">
+                    
+                        
+                            <a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=183&amp;menuNo=7000000001" id="mImgNavi6">정책홍보</a>
+                        
+                        
+                        
+                        
+                    
+                        
+                        
+                            <ul class="submenu" style="display: none;">
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="first"><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=183&amp;menuNo=7000000001">시스템 소개</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/index.do?boardId=boardID01&amp;menuNo=7000000002">법령 및 정책</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/awtis/edu/eduList.do?menuNo=7000000003">교육안내</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=196&amp;menuNo=7000000004">동물보호 명예감시원</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/index.do?boardId=boardID03&amp;menuNo=7000000005">정보공개</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/index.do?boardId=boardID06&amp;menuNo=7000000006">공지사항</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li><a href="https://www.animal.go.kr/front/community/index.do?boardId=boardID07&amp;menuNo=7000000008">홍보자료</a></li>
+                        		
+                        	
+                        
+                        
+                    
+                        
+                        
+                        
+                        	
+                        		
+                        		
+		                            <li class="last"><a href="https://www.animal.go.kr/front/community/show.do?boardId=contents&amp;seq=157&amp;menuNo=7000000007">동물학대방지</a></li>
+                        		
+                        	
+                        
+                        
+                            </ul>
+                        
+                    
+                </li>   
+            
+            
+                <li class="sitemap last">
+                    
+                    <a href="https://www.animal.go.kr/front/awtis/sitemap/sitemap.do?menuNo=8000200002" title="사이트맵으로 이동">전체메뉴</a>
+               </li>
+            </ul>
+        </div>
+    </div>
+    <!-- GNB -->
+    <!-- HEADER --> 
+	<!-- //헤더 영역 끝 -->
+
+
+    
+
+
+
+
+
+
+
+
+ 
+<!-- VISUAL -->
+    <div class="visual_wrap">
+        <div class="visual">
+            <dl>
+                <dt>정보마당</dt>
+                <dd>농림축산식품부는 유기동물관리에서 동물등록에 이르기까지 동물보호 업무 전반을 통합적으로 관리하기 위해 각 시도(시군구)의 동물보호업무 담당부서와 연계하여 동물보호관리시스템을 운영하고 있습니다.</dd>
+            </dl>
+        </div>
+    </div>
+    <!-- VISUAL --> 
+    
+    
+
+
+
+
+<!-- 콘텐츠 전체 시작 -->
+<!-- content 영역 -->
+<div id="contents">
+	<!-- Left 시작 -->
+		
+
+
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function(){
+		
+	});
+	/*
+	$(function(){
+		var sessionMenuNo = "5000000013";
+		$(".leftbg_2depth[data-key="+sessionMenuNo+"]").addClass("active");
+		$(".leftbg_2depth[data-child="+sessionMenuNo+"]").addClass("active");
+		console.log("kr.or.epis.persistence.vo.AccountVO@3370924[seq=0,groupCode=GRO0000,group=kr.or.epis.persistence.vo.GroupVO@a080d00d[code=GRO0000,name=일반사용자,description=<null>,supervise=true,sessionTimeout=1800000,disabledAt=<null>,createdAt=<null>,updatedAt=<null>,mode=<null>,tmpCd=0,codes=<null>,searchName=<null>,column=<null>,keyword=<null>,pageSize=0,page=1,sort=<null>,keywordType=<null>,detailYn=<null>,bgroup=<null>,bgroupSeq=<null>,contact=<null>,department=<null>],menuNo=5000000013,menuType=<null>,mode=<null>,accountId=<null>,pass=<null>,encryptedPass=<null>,name=<null>,emailId=<null>,emailHost=<null>,tel1=,tel2=,tel3=,hp1=,hp2=,hp3=,zipcodePrimary=,zipcodeSecondary=,address=,addressDetail=,userAagent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36,remoteIp=112.221.224.125,locale=ko_KR,usable=true,createdAt=<null>,updatedAt=<null>,logCountAt=true,groupName=,authorCode=<null>,seqs=<null>,accountId2=,pass2=,searchColumn=,column=<null>,keyword=<null>,pageSize=0,page=1,sort=<null>,keywordType=<null>,detailYn=<null>,bgroup=<null>,bgroupSeq=<null>,contact=<null>,department=<null>]");
+	});
+	*/
+
+	$(function(){
+		
+		var sessionMenuNo = "5000000013";
+		
+		$("#subleft ul li").each(function(i){
+			var path = $(this).attr("id"); 
+			if( path.indexOf(sessionMenuNo) > 0){
+				var tmpPath = path;
+				var ids = path.split("_");
+				for( var i=ids.length-1 ; i>1 ; i--){  
+					
+					$("#"+tmpPath).removeClass("leftbg_"+(i)+"depth"); 	
+					$("#"+tmpPath).addClass("leftbg_"+(i)+"depth_on current");
+					tmpPath = tmpPath.replace("_"+ids[i],"");	
+				}	 
+			} 
+		}); 
+		$(".area_4depth").css("display","none"); 
+		
+		
+		var selected ="";
+		$("[class^=leftbg_2depth]").each(function(){
+			var className = $(this).attr("class");	
+			if("leftbg_2depth_on" == className){
+				selected = $(this).attr("id");
+			}
+		});
+		
+		$(".leftbg_2depth").mouseover(function() {
+			$(this).removeClass("leftbg_2depth");
+			$(this).addClass("leftbg_2depth_on");
+		});
+		
+		$(".leftbg_2depth").mouseout(function() {
+			$(this).removeClass("leftbg_2depth_on");
+			$(this).addClass("leftbg_2depth");
+		});
+		
+	});
+
+</script> 
+
+
+        <!-- SIDEBAR -->
+<div id="sidebar">
+	<h2 id="left_title">정보마당</h2>
+	<ul>        
+        
+					
+			
+					
+			
+                
+                    
+                    
+                        
+                            <li class="leftbg_2depth first" id="_5000000000_5000000001">
+                                <a href="https://www.animal.go.kr/front/community/show.do;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front?boardId=contents&amp;seq=92&amp;menuNo=5000000001">일반정보</a>                    
+                            </li>    
+                        
+                    
+                
+			
+					
+			
+                
+                    
+                    
+                        
+                            <li class="leftbg_2depth" id="_5000000000_5000000013">
+                                <a class="current" href="https://www.animal.go.kr/front/community/show.do;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front?boardId=contents&amp;seq=105&amp;menuNo=5000000013">건강정보</a>                    
+                            </li>    
+                        
+                    
+                
+			
+					
+			
+                
+                    
+                    
+                        
+                            <li class="leftbg_2depth" id="_5000000000_5000000014">
+                                <a href="https://www.animal.go.kr/front/awtis/relevant/relevantList.do;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front?menuNo=5000000014">동물보호 업무 부서</a>                    
+                            </li>    
+                        
+                    
+                
+			
+					
+			
+                
+                    
+                    
+                        
+                            <li class="leftbg_2depth" id="_5000000000_5000000015">
+                                <a href="https://www.epeople.go.kr/?menuNo=5000000015" target="_blank" title="새창열림">온라인 민원신청</a>                    
+                            </li>    
+                        
+                    
+                
+			
+					
+			
+                
+                    
+                    
+                        
+                            <li class="leftbg_2depth" id="_5000000000_5000000016">
+                                <a href="https://www.animal.go.kr/front/awtis/faq/faqList.do;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front?menuNo=5000000016">동물등록 FAQ</a>                    
+                            </li>    
+                        
+                    
+                
+			
+					
+			
+                
+                    
+                    
+                        
+                            <li class="leftbg_2depth" id="_5000000000_5000000017">
+                                <a href="https://www.animal.go.kr/front/community/show.do;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front?boardId=contents&amp;seq=310105&amp;menuNo=5000000017">무선식별장치 공급업체</a>                    
+                            </li>    
+                        
+                    
+                
+			
+					
+			
+                
+                    
+                    
+                        
+                            <li class="leftbg_2depth last" id="_5000000000_5000000018">
+                                <a href="https://www.animal.go.kr/front/community/index.do;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front?boardId=boardID08&amp;menuNo=5000000018">동물복지 교육자료</a>                    
+                            </li>    
+                        
+                    
+                
+			
+		 
+	</ul>
+</div><!-- subleft -->
+<!-- center 시작 -->
+<!-- 국문 -->
+    <div id="content">
+
+
+	<div id="content_topbg0" class="sub_tit">
+		<h3 id="contentTitle">건강정보</h3>
+		
+		<!-- 이정표 --> 
+		
+		<ul class="breadcrumb" id="location">
+            <li class="first">HOME</li>
+			
+				
+					
+				
+				
+					
+					
+						 <li>정보마당</li>
+					
+				
+			
+				
+				
+					
+						<li class="current last">건강정보</li>
+					
+					
+				
+			
+       </ul>
+	</div>
+
+
+<script>
+	$(function(){
+		var category = "정보마당";
+		$("#left_title").html(category);
+		$('.visual > dl > dt').html(category);
+	});
+</script>
+
+		
+		<div id="sub_con" class="sub_con">
+		<!-- 콘텐츠 영역  적용하세요 시작 -->
+		<!-- 탭 영역 공통 -->
+
+
+        <!-- 내용 시작 -->
+        <div class="area_bg">
+            <div class="sub_con">
+
+				<!-- 건강정보 -->	
+				<div class="txt_l">					
+
+					<p class="blue_tit">식사관리</p>
+					<p class="con_txt">
+						동물체의 주요한 구성성분은 수분, 단백질, 지방, 광물질 그리고 극히 소량의 탄수화물이며, 각각의 구성비율은 동물품종, 연령, 성별 및 동물의 상태에 따라 다르다. <br>
+						지방이나 소화관의 내용물을 제외하고는 동물체의 조성은 거의 물이 75%, 단백질 20%, 광물질 5% 및 탄수화물이 1% 이하로 되어 있다. <br>
+						음식물은 에너지를 공급하는 고유의 음식물(탄수화물, 지방 및 단백질)과 생명에는 반드시 필요하나 에너지를 공급하지 않는 수분, 무기 염류 및 비타민으로 분류한다. <br>
+						음식물은 다른 영양소와 함께 에너지를 공급해야 되는데, 에너지는 근육운동과 체온을 유지시킬 뿐 아니라 호흡이나 심장기능의 유지 등에도 필요하다. <br>
+						한편, 에너지가 많은 음식물을 다량으로 섭취하면 체내에 체지방이 축적되어 비만의 원인이 되기 쉽고 반대로 필요량에 부족하게 되면 성장이 불량하거나, <br>
+						체중이 감소되어 야위고 쉽게 병에 걸리게 된다. <br>
+						개는 엄격한 의미에서 육식성 동물이 아니므로 육류만으로는 생존할 수 없다. 
+
+					</p>
+
+					<hr>
+
+					<p class="blue_tit">반려견이 먹으면 안되는 음식물</p>
+					<table class="tbl02" summary="음식물, 안되는 이유 순으로 구성된 정보">
+<caption>반려견 금지음식</caption>
+						<colgroup>
+							<col width="20%">
+							<col width="*">
+						</colgroup>
+						<thead>
+							<tr>
+								<th class="first">음식물</th>
+								<th class="last">안 되는 이유</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th class="first">양파</th>
+								<td class="last">어떤 식으로 요리해도 양파의 독성은 없어지지 않는다. 양파의 강한 독성은 개나 고양이의 적혈구를 녹여 버리며, 심한 경우에는 급성 빈혈을 일으켜 죽기도 한다.</td>
+							</tr>
+							<tr>
+								<th class="first">초콜렛</th>
+								<td class="last">초콜렛은 중독을 일으킨다. 섭취 시 지나치게 활동적이거나 흥분상태를 보이기도 하고, 다른 음식은 먹지도 않아도 구토를 자주 하게 되고 노란색의 점액질을 토해낸다.</td>
+							</tr>
+							<tr>
+								<th class="first">우유</th>
+								<td class="last">우유에는 모유에는 없는 유당이 함유되어 있으나, 강아지는 선천적으로 유당을 분해할 수 있는 효소가 없다. 어린 강아지에게 설사를 일으키는 원인이 되기도 하며 설사는 2차 감염원이 되기도 하므로 특별한 경우가 아니면 급여를 삼가해야 한다.</td>
+							</tr>
+							<tr>
+								<th class="first">생선</th>
+								<td class="last">등푸른 생선에는 DHA가 많이 함유되어 있지만 어린강아지는 DHA를 분해하는 효소가 없어서 소화가 되지 않고 바로 배설된다. 그리고 생선가시는 소화되지 않고 소화기관에 상처나 염증을 유발 할 수도 있다. 기름이 많이 함유된 생선통조림은 설사와 구토를 일으키고 많은 양의 기름은 강아지에게 소화장애를 일으키므로 급여를 삼가해야 한다.</td>
+							</tr>
+							<tr>
+								<th class="first">닭뼈</th>
+								<td class="last">소화가 되었을 때 뼈가 날카롭게 분해되면서 소화기관에 상처를 내어 염증이나 혈변, 심한 경우에는 죽음에 이르게 할 수 있다.</td>
+							</tr>
+							<tr>
+								<th class="first">마른 오징어</th>
+								<td class="last">개들은 음식을 씹지 않고 바로 소화기관으로 넘기므로 오징어나 쥐포 등을 먹으면 입과 식도, 위까지 손상될 수 있으므로 주지 않는다.</td>
+							</tr>
+							<tr>
+								<th class="first">채소류의 과잉섭취</th>
+								<td class="last">어느 정도의 채소류의 섭취는 섬유질이 있어 소화흡수에 도움이 되지만, 많은 양의 채소류는 공급과잉이 되며 체외로 배출되므로 적당량을 준다.</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+					<hr>
+
+					<p class="blue_tit">반려견의 질병</p>
+
+					<h4 class="bullet01">질병의 종류</h4>
+					<table class="tbl02 mb30" summary="질환기, 질환내용 순으로 구성된 정보">
+<caption>반려견의 질병 종류</caption>
+						<colgroup>
+							<col width="20%">
+							<col width="*">
+						</colgroup>
+						<thead>
+							<tr>
+								<th class="first">질환기</th>
+								<th class="last">질환내용</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th class="first">호흡기</th>
+								<td class="last">콧물, 계속되는 재채기, 기침, 구역질, 호흡 곤란, 심한코골이</td>
+							</tr>
+							<tr>
+								<th class="first">눈</th>
+								<td class="last">눈의 분비물, 시력 감퇴, 염증, 감염으로 인한 출혈, 흐린 테가 끼는 경우</td>
+							</tr>
+							<tr>
+								<th class="first">귀</th>
+								<td class="last">	귀 고름, 머리를 흔들어 대는 경우, 귀가 부어 오르는 경우, 균형상실, 난청</td>
+							</tr>
+							<tr>
+								<th class="first">입</th>
+								<td class="last">침을 질질 흘리는 경우, 식욕 저하, 잇몸의 염증, 구취, 이빨이 부러지거나 흔들리는 경우</td>
+							</tr>
+							<tr>
+								<th class="first">외부기생충</th>
+								<td class="last">지나치게 핥는 경우, 기생충이 발견되는 경우, 비듬, 탈모, 긁적거림</td>
+							</tr>
+							<tr>
+								<th class="first">피와 심장</th>
+								<td class="last">지나친 기침, 빈혈, 무기력증, 지나친 기침, 운동을 기피하는 경우</td>
+							</tr>
+							<tr>
+								<th class="first">뼈, 근육, 관절</th>
+								<td class="last">감염된 부분의 부어 오름, 다리를 만지면 통증을 느끼는 경우, 마비, 절룩거림</td>
+							</tr>
+							<tr>
+								<th class="first">신경성</th>
+								<td class="last">발작이나 경련, 비틀거리는 걸음걸이 일부 또는 전신 마비</td>
+							</tr>
+							<tr>
+								<th class="first">소화기</th>
+								<td class="last">행동상의 변화, 균형의 상실, 체중의 과도한 변화, 식욕 상실, 변비, 설사 구토</td>
+							</tr>
+							<tr>
+								<th class="first">피부 및 털</th>
+								<td class="last">갑자기 씹어 대거나 핥는 경우, 염증 또는 종양, 탈모, 계속 긁어 대는 경우</td>
+							</tr>
+							<tr>
+								<th class="first">생식기</th>
+								<td class="last">유방의 통증, 생식 불능, 유산, 출산 후의 이상, 이상 분비물</td>
+							</tr>
+							<tr>
+								<th class="first">비뇨기</th>
+								<td class="last">배뇨가 힘든 경우, 혈뇨, 대소변 실금, 소변량의 증가, 배뇨의 감소</td>
+							</tr>
+							<tr>
+								<th class="first">기생충</th>
+								<td class="last">분비물에서 기생충을 발견하는 경우, 배가 부어 오르는 경우, 설사, 항문에서 이 물질을 발견 하는 경우, 체중 감소</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+					<h4 class="bullet01">응급처치방법</h4>
+					<p class="con_txt">
+						반려견의 교통사고, 일사병, 골절이나 화상, 급한 호흡의 곤란 등으로 인한 경우 빠르게 대응하여 애견을 사고로부터 구할 수 있다. <br>
+						이런 사고를 당한 반려견은 쇼크나 통증으로 사납고 난폭해지므로 인간의 신체에 해가 가지 않게 해야한다.<br>
+						특히 물지 못하도록 기본적인 안전장치를 한 다음 애견에 적절한 응급치료나 적당한 방법으로 병원으로 데려간다.<br>
+						부상당한 장소가 복잡하거나 위험에 노출된 장소이면 곧  바로 안전한 장소로 이동 시킨다.<br>
+						운반할 때는 개의 신체가 심하게 흔들리거나 또 다른 충격을 받지 않도록 한다. <br>
+						흥분하거나 쇼크 상태이기 때문에 침착하게 개에게 말을 걸어 주의를 끌어 안심시키고, 많은 사람들의 접근을 막는다. <br>
+						쇼크나 통증으로 주인도 물 수 있으므로 항상 주의를 요한다.<br>
+						적당한 보호장치와 같은 조치를 취해 물지 못하도록 방지한다. 또한 응급처치나 운반을 할 때는 장갑이나 수건을 이용하여 개의 몸을 감싸여 이동한다.<br>
+						응급처치는 신속하게 정확하게 한다. 긴 타월을 이용해 개의 복부를 타월로 감싸고 목 부분을 묶은 뒤 개를 안아서 운반한다. <br>
+						판자나 두꺼운 시트를 들 것 대용으로 이용할 경우, 개를 바닥으로 미끄러지듯이 부드럽게 이동시킨다. <br>
+						개가 떨어지거나 충격을 받지 않도록 하기 위하여 끈이나 부드러운 천을 이용해 묶어서 고정 시켜준다. 
+					</p>
+
+					<hr>
+
+					<p class="blue_tit">임신과 출산</p>
+
+					<h4 class="bullet01">발정과 교배</h4>
+					<ul class="arr_blue">
+						<li class="first">발정은 품종, 개체, 발육 정도에 따라 차이가 있으나 조숙한 소형견은 5~7개월, 중형견은 8~10개월, 대형견은 1년 이상이 지나야 시작된다. </li>
+<li>발정증상은 외음부가 팽창되고 혈액이 섞인 액체가 배출되며, 개가 안정적이지 못하고 외음부를 자주 핥는다.</li>
+<li class="last">발정주기는 난포의 발육, 성숙, 배란, 황체 형성 등에 따라 4기로 구분한다. </li>
+					</ul>
+
+					<table class="tbl02 mb30" summary=" 발정주기, 발정주기의 변화 순으로 구성된 정보">
+<caption>애견의 발정 정보</caption>
+						<colgroup>
+							<col width="20%">
+							<col width="*">
+						</colgroup>
+						<thead>
+							<tr>
+								<th class="first">발정주기</th>
+								<th class="last">발정주기의 변화</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th class="first">발정전기</th>
+								<td class="last">개가 안정적이지 못하고 배뇨회수가 증가하며 외음부가 점차 붓기 시작하면서 충혈되며 출혈이 보이기도 한다.</td>
+							</tr>
+							<tr>
+								<th class="first">발정기</th>
+								<td class="last">외음부의 붓기가 최고에 달하고 출혈의 색이 점차 엷어져서, 보통의 분비물로 변한다.<br>발정이 처음 시작된 후 12일 정도 지난 시기에 배란이 일어나고, 이 시기가 교배의 적기 이다.</td>
+							</tr>
+							<tr>
+								<th class="first">발정후기</th>
+								<td class="last">
+									교배 시켜서 임신이 된 경우는 분비물 배출은 빨리 멈추지만, 임신이 되지 않은 경우에는 오랫동안 소량으로 분비된다. <br>
+점차 외음부가 작아져서 원래의 모양대로 돌아간다.<br>
+말기에는 위임신의 증세를 나타내는 개체도 있다. 그러나 발정후기가 끝난 후 확실한 증거를 볼 수 없다. 
+								</td>
+
+							</tr>
+							<tr>
+								<th class="first">발정 휴지기</th>
+								<td class="last">
+									발정횟수는 이 기간의 장단에 따라서 달라지는데, 대체적으로 개는 일년에 두번 발정을 일으키며 한 발정기가 한 3주 정도이다.<br>
+개체에 따라서 이보다 더 긴 경우도 있다. 
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<h4 class="bullet01">임신의 경과</h4>
+					<p class="mb30 con_txt">
+						모든 교배가 다 성공적으로 연결되는 것은 아니다. 교배 후에 임신 여부를 확인해야 하는데 실제로 임신의 징후가 나타나는것은 5주가 넘어서부터이다. <br>
+						 9주의 임신 기간 중 제일 먼저 나타나는 징후는 2주 정도부터 외음부의 이완, 유선의 적은 덩어리 등이 생기는 것이며 입덧으로 식욕이 떨어진다.<br>
+						그리고 3주부터는 복부가 약간 볼록해지며 위에서 보면 양쪽으로 늘어져서 재보면 배 둘레가 늘어난 것을 알 수 있다. <br>
+						젖 중에는 아래쪽 4쌍의 8개의 유선이 발달하여 새끼에게 젖을 주기 위해 그 주위의 털이 빠진다. <br>
+						4주에 접어들면 생식기에서 점액질의 분비물이 나오며 식후에는 복부가 현저하게 커진다. <br>
+						6주에는 신체의 변화가 두드러지는데, 복부의 팽창이 눈으로 확인되며 임신의 유무를 이 시기에 하는 것을 기준으로 하는 것이 상식이다. <br>
+						복부의 털이 빠짐과 동시에 젖이 커지고 특히 아래쪽 2쌍 4개는 붉어 진다. <br>
+						7주부터는 미약한 움직임이 시작되며, 본능적으로 출산 준비를 위해 굴을 파거나 어두운 곳을 찾기 시작한다. <br>
+						이 시기 부터는 복부가 압박되기 시작해 소변을 자주 본다. <br>
+						8주에 접어 들면 움직임이 활발해져 손으로 만져 보지 않더라도 편안히 누워 있는 개의 배를 보면 여기저기서 움직이는것을 볼 수 있다.  
+					</p>
+
+					<h4 class="bullet01">임신기간</h4>
+					<p class="mb30 con_txt">
+						개의 임신 기간은 평균 9주(63일)로 이 기간 중 아래쪽 젖에서 연한 초유가 분비되며 점점 짙어진다. 출산이 가까워지면 불안한 상태가 된다. <br> 
+						교배일을 정확히 알면 그 교배일로부터 분만 예정일을 알 수 있다. 새끼의 발육 상태에 따라 2~3일의 편차는 있다.
+					</p>
+
+					<h4 class="bullet01">출산 시 신체변화</h4>
+					<p class="mb30 con_txt">
+						일정하지는 않지만 개의 품종이나 체격의 크기에 따라서 5~6 마리를 낳는 중형견을 표준으로 할 때 배 둘레가 60% 정도 커진다. 
+					</p>
+
+					<h4 class="bullet01">임신 중인 반려견 관리</h4>
+					<p class="mb30 con_txt">
+						임신 중인 개에게는 적당한 영양 섭취와 적당한 운동 및 산책이 중요하다. 너무 무리하게 운동을 시키거나 많은 양의 사료를 급여해서는 안된다.  <br>
+						이는 난산이나 유산의 원인이 되기도 한다. 적당한 영양섭취를 시켜 강아지가 비대해지지 않도록 한다. <br>
+						임신 중인 개는 평소보다 많은 양의 에너지가 필요하므로 영양을 충분히 섭취 할 수 있도록 급여하면 된다. 사료의 양은 평소의 30%까지 늘려 급여한다.<br>
+						적당한 운동도 필수적이다. 계단 오르내리기, 문턱 넘어가기 등 복부에 자극이 될 만한 행동은 금한다. 
+					</p>
+
+					<h4 class="bullet01">분만의 준비</h4>
+					<p class="mb30 con_txt">
+						가급적이면 평소에 익숙해진 장소나 길들여진 개 집에서 분만하도록 한다. 분만 전후에는 신경이 예민해지고 경계심이 강해지고 공격적이어서 소란스럽거나 <br>
+사람의 왕래가 많은 곳은 피해야 한다.
+					</p>
+
+					<h4 class="bullet01">분만의 경과</h4>
+					<p class="mb30 con_txt">
+                         분만이 다가온 개는 어두운 곳으로 들어가려 한다. 이러한 증상이 12시간이나 24시간 계속되다가 진통 때 신음을 하게 되며,<br>
+						 호흡 간격이 10분마다 하다가 차차 그 주기가 짧아진다. <br>
+						 호흡이 거칠어지고 몸을 떠는 개도 있다. 첫 강아지가 산도로 내려오기 때문에 뒷다리에 힘을 주며 뻗는데, <br>
+						 그 후 태반을 쓰고 움직이는 것이 나타난다. 본능적으로 어미개는 태반을 물어 뜯고 강아지의 전신을 핥아준다. <br>
+						 그리고 탯줄은 새끼의 몸에서 2~3cm 되는 위치에서 물어 뜯는다. <br>
+						 출산의 모든 것은 개가 본능적으로 하므로 어미 개에게 맡겨 두고 사람은 손을 대지 않는 것이 좋다. <br> 
+						 다만 초산인 경우라 잘하지 못 할 때에는 사람이 태반을 벗겨주고 실로 탯줄을 묶은 후 가위로 잘라준다. <br>
+						 어미 개의 몸도 신문지나 마른 천을 이용하여 닦아주어 물기를 제거한다. 
+					</p>
+
+					<h4 class="bullet01">출산견의 건강상태</h4>
+					<p class="mb30 con_txt">
+					    어미 개의 체온은 분만 24시간 전에 일시적으로 37도 정도로 떨어지나 분만 후에는 다시 정상 체온으로 돌아온다. <br>
+						맥박은 평소보다 20 이상을 넘지만 분만 후에는 조금 떨어지고 수유하는 초기에는 높게 유지한다. <br>
+						분만 후에는 자궁 등에 상처가 있어 2일 후에 열이 나는 수가 있다. <br>
+						이 때 체온이 40도까지 올라가나 일주일쯤 지나면 정상으로 돌아온다. 
+					</p>
+
+					<hr>
+
+					<p class="blue_tit">강아지의 성장</p>
+					<p class="mb30 con_txt">
+						출생에서 3주까지 건강한 강아지는 대체로 평온하다. 강아지는 90%의 시간은 잠을 자고 10%의 시간은 젖을 빨며 젖꼭지를 차지하기 위해 경쟁한다. <br>
+						처음 이틀 동안은 머리를 밑으로 묻고 잠을 잔다. 자는 동안 강아지는 놀라기도 하고 소리에 반응을 나타내는데, 이것을 활동하는 잠이라고 한다.<br>
+						활동 잠은 강아지들이 하는 유일한 운동 방법이고 후에 쓸 근육을 발달을 돕기도 하기 때문에 지극히 정상적이다.
+					</p>
+					<ul class="arr_step5">
+						<li class="first">
+							<img class="mb10" alt="분만~2주령" src="./pet_health_files/sub06_02_img1-1.png">
+							<ul class="dotted_list">
+								<li class="first">눈을 뜨지 못함</li>
+								<li>5~6일 뒤 귀 들림</li>
+								<li>5~6일 탯줄 떨어짐</li>
+								<li class="last">추위에 약함 </li>
+							</ul>
+						</li>
+						<li>
+							<img class="mb10" alt="3주령~4주령" src="./pet_health_files/sub06_02_img1-2.png">
+							<ul class="dotted_list">
+								<li class="first">젖니 생성</li>
+								<li>움직임 활발</li>
+								<li>14~17일 눈뜸</li>
+								<li class="last">20시간 이상 수면 </li>
+							</ul>
+						</li>
+						<li>
+							<img class="mb10" alt="5주령~2개월령" src="./pet_health_files/sub06_02_img1-3.png">
+							<ul class="dotted_list">
+								<li class="first">젖니 모두 생성</li>
+								<li>장난이 심함</li>
+								<li>젖을 뗌</li>
+								<li>체형의 완성</li>
+								<li class="last">전엽병 쉽게 노출</li>
+							</ul>
+						</li>
+						<li>
+							<img class="mb10" alt="3개월~5개월령" src="./pet_health_files/sub06_02_img1-4.png">
+							<ul class="dotted_list">
+								<li class="first last">만 2개월 지나면 어미로부터 독립생활 가능</li>
+							</ul>
+						</li>
+						<li class="last">
+							<img class="mb10" alt="9개월~12개월령" src="./pet_health_files/sub06_02_img1-5.png">
+							<ul class="dotted_list">
+								<li class="first">성견의 80% 도달</li>
+								<li>전체적인 균형 형성</li>
+								<li class="last">암캐의 경우 첫 발정시기 </li>
+							</ul>
+						</li>
+					</ul>
+
+					<hr>
+
+					<p class="blue_tit">개의 훈련</p>
+
+					<h4 class="bullet01">훈련시기</h4>
+					<p class="mb30 con_txt">
+						훈육은 생후 2~3 개월부터 시작하는데, 처음에는 쉽고 간단하고 단시간에 끝낼 수 있는 배설요령 식사요령 등을 교육한다. <br>
+						생후 7~8 개월이 되면 신체의 성장과 행동범위가 넓어지므로 본격적으로 훈련을 시작한다. <br>
+						훈련은 훈육보다는 더 많은 시간과 노력이 필요하며 개도 더 많은 체력과 힘이 요구된다. 
+					</p>
+
+					<h4 class="bullet01">사회화</h4>
+					<p class="mb30 con_txt">
+                        생후 3주령에서 13주령까지의 시기로 이 시기에는 가능한 많은 사람과 접촉시키고, 여러 소리나 상황을 경험 시키는 것이 환경에 잘 적응하는 개로 성장시킨다.<br>
+						강아지도 실수를 할 수도 있다는 사실을 알아야하고 그 것으로 화내지는 말아야한다. 나쁜 습관은 나중에 고치려 하기 보다는 처음부터 갖지 않도록 하는 것이 좋다. <br>
+						강아지와 함께 시간을 보내고 같이 놀아주고, 말도 걸고, 쓰다듬어 주면서 정을 주며 키운다. <br>
+						강아지에게 해도 되는 것과 하지 말아야 할 것을 꾸준히 가르쳐 주어야 한다.
+					</p>
+
+					<h4 class="bullet01">훈육 및 훈련 시기</h4>
+					<p class="mb30 con_txt">
+						훈육은 생후 2~3개월부터 시작하는데 처음에는 쉽고 간단하며 단시간에 끝낼 수 있는 배설요령, 식사요령 등을 교육한다. <br>
+						생후 7~8 개월이 되면 신체의 성장과 행동범위가 넓어지므로 본격적으로 훈련을 시작한다. <br>
+						훈련은 훈육보다는 더 많은 시간과 노력이 필요하며 개에게도 더 많은 체력과 힘이 요구된다. 
+					</p>
+
+					<hr>
+
+					<p class="blue_tit">애견예방접종</p>
+					<p class="mb30 black con_txt">
+						예방접종을 한 후에는 열, 침울, 통증, 종창 등의 접종반응이 나타날 수 있지만 대부분의 경우에 하루 정도 조용한 곳에 두면 자연히 괜찮아진다. <br>
+						그러나 증상이 심할 경우나 이상증상이 나타날 경우에는 담당 수의사에게 문의하는 것이 좋다. 
+					</p>
+
+					<h4 class="bullet01">강아지 예방접종</h4>
+					<table class="tbl03 mb30" summary="혼합예방주사, 코로나바이러스성 장염, 기관·기관지염, 광견병 순으로 기초접종, 추가접종, 보강접종의 정보">
+<caption>강아지 예방접종 종류</caption>
+						<colgroup>
+							<col width="25%">
+							<col width="*">
+							<col width="220">
+						</colgroup>
+						<tbody><tr>
+							<th rowspan="3" class="first">혼합예방주사 (DHPPL)</th>
+							<td>기초접종 : 생후 6 ~ 8주에 1차 접종</td>
+							<td rowspan="3" class="last">
+								Canine Distemper (홍역), <br>
+								Hepatitis (간염),<br>
+								Parvovirus (파보장염),<br>
+								Parainfluenza (파라인플루엔자),<br>
+								Leptospira (렙토스피라) 혼합주사임.
+							</td>
+						</tr>
+						<tr>
+							<td class="first last">추가접종 : 1차 접종 후 2 ~ 4주 간격으로 2 ~ 4회</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 추가접종 후 매년 1회 주사</td>
+						</tr>
+						<tr>
+							<th rowspan="3" class="first">코로나바이러스성 장염(Coronavirus)</th>
+							<td>기초접종 : 생후 6 ~ 8주에 1차 접종</td>
+							<td rowspan="3" class="last">-</td>
+						</tr>
+						<tr>
+							<td class="first last">추가접종 : 1차 접종 후 2 ~ 4주 간격으로 1 ~ 2회</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 추가접종 후 매년 1회 주사</td>
+						</tr>
+						<tr>
+							<th rowspan="3" class="first">기관ㆍ기관지염 (Kennel Cough)</th>
+							<td>기초접종 : 생후 6 ~ 8주에 1차 접종</td>
+							<td rowspan="3" class="last">-</td>
+						</tr>
+						<tr>
+							<td class="first last">추가접종 : 1차 접종 후 2 ~ 4주 간격으로 1 ~ 2회</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 추가접종 후 매년 1회 주사</td>
+						</tr>
+						<tr>
+							<th rowspan="2" class="first">광견병</th>
+							<td>기초접종 : 생후 3개월 이상 1회 접종</td>
+							<td rowspan="2" class="last">-</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 6개월 간격으로 주사</td>
+						</tr>
+					</tbody></table>
+
+					<h4 class="bullet01">고양이 예방접종</h4>
+					<table class="tbl03 mb30" summary="혼합예방주사, 고양이 백혈병, 전염성 복막염, 광견변 순으로 기초접종, 추가접종, 보강정종의 정보">
+<caption>고양이 예방접종 종류</caption>
+						<colgroup>
+							<col width="25%">
+							<col width="*">
+						</colgroup>
+						<tbody><tr>
+							<th rowspan="3" class="first">혼합예방주사 (CVRP)</th>
+							<td class="last">기초접종 : 생후 6 ~ 8주에 1차 접종</td>
+						</tr>
+						<tr>
+							<td class="first last">추가접종 : 1차 접종 후 2 ~ 4주 간격으로 2 ~ 3회</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 추가접종 후 매년 1회 주사</td>
+						</tr>
+						<tr>
+							<th rowspan="3" class="first">고양이 백혈병 (Feline Leukemia)</th>
+							<td class="last">기초접종 : 생후 9 ~ 11주에 1차 접종</td>
+						</tr>
+						<tr>
+							<td class="first last">추가접종 : 1차 접종 후 2 ~ 4주 간격으로 1 ~ 2회</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 추가접종 후 매년 1회 주사</td>
+						</tr>
+						<tr>
+							<th rowspan="3" class="first last">전염성 복막염 (FIP)</th>
+						</tr>
+						<tr>
+							<td class="first last">추가접종 : 1차 접종 후 2 ~ 3주 간격으로 1회</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 추가접종 후 매년 1회 주사</td>
+						</tr>
+						<tr>
+							<th rowspan="2" class="first">광견병</th>
+							<td class="last">기초접종 : 생후 3개월 이상 1회 접종</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 1개월 간격으로 주사</td>
+						</tr>
+					</tbody></table>
+
+					<h4 class="bullet01">토끼  예방접종</h4>
+					<table class="tbl03" summary="3개월령이하, 3개월령이상, 바이러스성 출혈병 순으로 기초접종, 추가접종, 보강접종의 정보">
+<caption>토끼 예방접종 종류</caption>
+						<colgroup>
+							<col width="25%">
+							<col width="*">
+						</colgroup>
+						<tbody><tr>
+							<th rowspan="3" class="first">3개월령 이하</th>
+							<td class="last">기초접종 : 구입 후 5일 뒤</td>
+						</tr>
+						<tr>
+							<td class="first last">추가접종 : 1차 접종 후 1개월 뒤</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 매년 9월 중순까지 접종</td>
+						</tr>
+						<tr>
+							<th rowspan="2" class="first">3개월령 이상</th>
+							<td class="last">기초접종 : 건강상태 양호할 때</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 매년 9월 중순까지 접종</td>
+						</tr>
+						<tr>
+							<th rowspan="2" class="first">바이러스성 출혈병</th>
+							<td class="last">기초접종 : 생후 3개월 이상 1회 접종</td>
+						</tr>
+						<tr>
+							<td class="first last">보강접종 : 매년 1회 접종</td>
+						</tr>
+					</tbody></table>
+
+				</div>
+				<!-- 건강정보 -->
+
+			</div> 
+        </div>  
+
+
+
+		<div class="bbs">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0">
+				<colgroup>
+					<col width="20%">
+					<col width="*">
+				</colgroup>
+				
+			</table>
+		</div>
+							
+		<!-- 콘텐츠 영역 적용하세요 끝 -->
+		</div>
+		
+
+	</div><!-- content 콘텐츠 끝 -->
+
+</div><!-- contents 콘텐츠 전체 끝 -->
+
+
+<!-- 풋터 시작 -->
+
+
+
+<script type="text/javascript" src="./pet_health_files/jquery.PrintArea.js_4.js.다운로드"></script>
+<script type="text/javascript" src="./pet_health_files/jquery.printElement.js.다운로드"></script>
+<script type="text/javascript">
+    // 공통 코드
+   $(function(){
+        $("ul").each(function(){
+            $(this).children().first().addClass('first');
+            $(this).children().last().addClass('last');
+        });
+        $("tr").each(function(){
+            $(this).children().first().addClass('first');
+            $(this).children().last().addClass('last');
+        });
+    });
+    $(function() { // 탭
+        $(".tab_ul").not('.no_event').children('li').click(function(){
+            var target = $(this).attr('data-key');
+            $(this).addClass('active').siblings().removeClass('active');
+            $(".tab_content").hide();
+            $(".tab_content[data-key="+target+"]").show();
+        });
+    });
+    function hidden_act(eq) { // hidden (비전)
+        $(".hidden_act").eq(eq).show().siblings('.hidden_act').hide();
+        //$('body, html').animate({scrollTop:1500},800);
+        // alert($("#hidden_a").offset().top);
+        // .scrollTop( $("#hidden_a").offset().top - 20 );
+        self.location.hash = 'hidden_a';
+    }
+    $(document).ready(function() {
+        //$(".copyright_opt").html("");
+        $("#btnPrint").click(function() {
+            printByJquery({
+                printMode: 'popup', //팝업설정 popup = 팝업창 , iframe = iframe
+                /* overrideElementCSS:[ '/front/css/homepage/common.css;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front'
+                                     , {href:'/css/homepage/common.css',media:''}
+                                     ,{href:'/css/homepage/common_dev.css',media:''}
+                                     ,{href:'/css/homepage/bbs.css',media:''}
+                                     ,{href:'/css/homepage/contents.css',media:''} ], //css경로 */
+
+                overrideElementCSS:[ '/front/css/homepage/common_dev.css;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front'
+                                     , {href:'/css/homepage/cohmmon.css',media:''}
+                                     ,{href:'/css/homepage/contents.css',media:''}
+                                     ,{href:'/css/homepage/bbs.css',media:''} ], //css경로
+                pageTitle:'', //인쇄 타이틀
+                leaveOpen:false //false = 인쇄후 창닫기
+            });
+        });
+    });
+    function printByJquery(options) {
+        /*2013.08.29 njkim 수정*/    
+        //$("#area_bg").printElement(options);
+        var p_title = $("h4").clone(true);
+        var p_content = $("#content_area").clone(true);
+
+        //타이틀 백그라운드 제거
+        $(p_title).css("background","");
+        //인쇄버튼삭제
+        $(p_content).find("#btnPrint").remove();
+        $(p_content).find("#subcon_printarea").css("background","");
+        //검색영역삭제
+        $(p_content).find(".bbs_search").remove();
+        //하단만족도조사삭제
+        $(p_content).find("#page_bottom2").remove();
+         
+        //하단 첨부파일/이전글/다음글 영역삭제
+        if($(p_content).find(".bbs_prev").length > 0){
+            $(p_content).find(".bbs_prev").parent().parent().parent().parent().parent().remove();
+        }else if($(p_content).find(".bbs_next").length > 0){
+            $(p_content).find(".bbs_prev").parent().parent().parent().parent().parent().remove();
+        }
+
+        //하단 버튼영역 삭제
+        $(p_content).find(".bd1_listbtn").remove();
+
+        p_title.append(p_content).printElement(options);
+    }
+    
+    var nowZoom = 100;
+    
+    function zoomOut(){
+    	nowZoom = nowZoom - 10;
+    	//alert(nowZoom);
+   		//if(nowZoom <= 70){ nowZoom = 70; }
+   		zooms();
+    }
+    
+    function zoomIn(){
+    	nowZoom = nowZoom + 10;
+    	//alert(nowZoom);
+    	//if(nowZoom >= 150){ nowZoom = 150; }
+    	zooms();
+    }
+    
+    function zoomReset(){
+    	nowZoom = 100;
+    	zooms();
+    }
+    
+    function zooms(){
+    	if(nowZoom < 70){ alert("70%축소 되었습니다. 더 이상 축소할 수 없습니다."); return;}
+    	if(nowZoom > 150){ alert("150%확대 되었습니다. 더 이상 확대 할 수 없습니다."); return;}
+    	//document.body.style.zoom = nowZoom+'%';
+    	document.body.style.fontSize=nowZoom+"pt";
+    	
+    }
+</script>
+
+
+    <!-- FOOTER MENU -->
+    <div id="footerMenu_wrap">
+    	<h1 style="display:none">하단메뉴영역</h1>
+        <div id="footerMenu">
+            <ul>
+
+                <li class="first"><a href="https://www.animal.go.kr/front/community/show.do;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front?boardId=contents&amp;seq=183&amp;menuNo=7000000001">시스템소개</a></li>
+                <li><a href="https://www.animal.go.kr/front/community/show.do;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front?boardId=contents&amp;seq=222&amp;menuNo=8000300007">저작권 정책</a></li>
+                <li><a href="https://www.animal.go.kr/front/community/show.do;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front?boardId=contents&amp;seq=235&amp;menuNo=8000200003">이용안내</a></li>
+                <li class="last"><a href="https://www.animal.go.kr/front/community/show.do;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front?boardId=contents&amp;seq=248&amp;menuNo=8000200004">개인정보처리방침</a></li>
+
+            <!-- 
+            	<li><a href="javascript:zoomIn()">확대</a></li>
+            	<li><a href="javascript:zoomOut()">축소</a></li>
+            	<li><a href="javascript:zoomReset()">원래대로</a></li>
+            -->
+            </ul>
+        </div>
+    </div>
+    <!-- FOOTER MENU -->
+    <!-- FOOTER -->
+    <div id="footer_wrap">
+    	<h1 style="display:none">하단문구영역</h1>
+        <div id="footer">
+            <h2><img src="./pet_health_files/footer-logo.png" alt="농림축산검역본부"></h2>
+            <ul class="info">
+                <li class="first">39660 경상북도 김천시 혁신8로 177(율곡동)</li>
+                
+                <li>전화번호 : <a href="tel:1577-0954">1577-0954</a> (시스템 장애 시 <a href="tel:054-810-8613">054-810-8613</a>)</li>
+                <script>
+                 if(getCookie("DesktopMode") == "true"){
+                     document.write('<li class="mobile_version" onclick="desktopMode()">MOBILE 버전</li>');
+                 }
+                </script>
+                <li class="pc_version last" onclick="desktopMode()">PC 버전</li>
+            </ul>
+            <p class="copy">
+                Copyright by Animal and Plant Quarantine Agency. All Rights Reserved.
+            </p>
+			<!-- 웹접근성 인증마크 -->
+			<a title="한국웹접근성인증평가원" href="http://www.wa.or.kr/board/list.asp?BoardID=0006" class="focus" target="_blank">
+				<!-- <img src="/front/images/common/wa-logo-20210410-20220409.png;jsessionid=OU1qJAyTiZLL4gUFo7caS1LPH4VlEPvdwJx1EiUyFKfME8TGbBWC7bc6iSxvBg6x.aniwas_servlet_front" class="wa" alt="웹접근성인증 로고" /> -->
+				<img src="./pet_health_files/wa-logo-20220410-20230409.png" class="wa_image" alt="웹접근성인증 로고">
+			</a>
+        </div>
+    </div>
+    <!-- FOOTER -->
+
+<!-- 풋터 끝 -->
+
+</div><!-- wrap 전체감싸주기 끝 -->
+
+
+</body></html>
