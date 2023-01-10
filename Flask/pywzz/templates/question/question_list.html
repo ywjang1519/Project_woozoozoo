@@ -1,5 +1,6 @@
 {% extends 'template.html' %}
 {% block content %}
+
 <div class="container my-3">
     <table class="table">
         <thead>
@@ -11,6 +12,8 @@
         </tr>
         </thead>
         <tbody>
+        {% include 'question/realtime_h.html' %}
+
         {% if question_list %}
         {% for question in question_list.items %}
         <tr class="text-center">
