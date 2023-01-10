@@ -64,3 +64,10 @@ class RealTime(db.Model):
     product_category = db.Column(db.String(100), nullable=True)
     product_name=db.Column(db.String(100), nullable=True)
     product_url=db.Column(db.String(1500), nullable=True)
+
+class PetDictionary(db.Model):
+    __table_name__='pet_dictionary'
+
+    pet_index=db.Column(db.Integer, primary_key=True)
+    pet_url=db.Column(db.String(200), nullable=True)
+    dictionary_category=db.Column(db.String(100), nullable=True)

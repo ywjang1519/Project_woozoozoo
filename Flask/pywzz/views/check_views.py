@@ -1,8 +1,8 @@
 # 라이브러리 import단
 from flask import Blueprint, render_template, request, redirect, url_for, session, g
 from werkzeug.utils import secure_filename
-from pywzz.models import PetImg,Disease
-from pywzz import db
+from pywzz.models import PetImg, Disease, User
+from pywzz import db, forms
 import os
 from torchvision import transforms
 import torch
@@ -66,13 +66,19 @@ def upload():
     elif request.method == 'POST':
         f = request.files['data']
         # current_path=os.getcwd()
-        path='pywzz/static/pet_img/'+str(g.user)
+
+        dir_path='pywzz/static/pet_img/'
+        if os.path.isdir(dir_path):
+            os.makedirs('pywzz/static/pet_img/',exist_ok=True)
+
+        path=dir_path+str(g.user) #경로
         send_name= 'pet_img/'+g.user+'/' + secure_filename(f.filename)
         f_name=path + '/' + secure_filename(f.filename)
 
         os.makedirs(path,exist_ok=True)
         f.save(f_name)
 
+        # mysql
         petimage=PetImg(img=path+'/'+secure_filename(f.filename))
         db.session.add(petimage)
         db.session.commit()
@@ -83,6 +89,7 @@ def upload():
 
 @bp.route('/upload/<filename>')
 def upload_file():
+    form = forms.PetImgForm
     filename=PetImg.query.filter_by(img=form.img.data)
     db.session.add(filename)
     db.session.commit()
@@ -99,6 +106,7 @@ def result():
         return render_template('check/check_result.html')
 
     elif request.method == 'POST':
+        form = forms.UserLoginForm
         user = User.query.filter_by(user_name=form.username.data).first()
         return redirect(url_for('check.model_run'))
 

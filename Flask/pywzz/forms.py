@@ -28,3 +28,6 @@ class QuestionForm(FlaskForm):
 
 class AnswerForm(FlaskForm):
     content = TextAreaField('답변 내용', validators=[DataRequired('답변 내용은 필수입력 항목입니다.')])
+
+class PetDictionaryForm(FlaskForm):
+    category = StringField('카테고리', validators=[DataRequired()])

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>키워드로 장소검색하고 목록으로 표출하기</title>
+    <title> 주변 동물병원 찾기 </title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="../../static/css/styles_ldj.css" rel="stylesheet" />
@@ -351,13 +351,17 @@ map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 var zoomControl = new kakao.maps.ZoomControl();
 map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 </script>
-<df-messenger
-  intent="WELCOME"
-  chat-title="우쭈쭈 챗봇"
-  agent-id="3a9f3839-06ab-45ec-9371-247ef237f25a"
-  language-code="ko">
-<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-</df-messenger>
+
+    <!-- dialogflow chatbot -->
+    <script src="../static/js/scripts.js"></script>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      intent="WELCOME"
+      chat-title="우쭈쭈 chat-bot"
+      agent-id="3a9f3839-06ab-45ec-9371-247ef237f25a"
+      language-code="ko">
+    </df-messenger>
+
 </body>
 {% endblock %}
 </html>

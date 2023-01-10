@@ -57,10 +57,12 @@
     </header>
     <main>
         <!--? Slider Area Start-->
-        <div class="slider-area" style="background-image: url(static/assets/img/gallery/figma_home.png);">
+        <div class="slider-area" style="background: #F0EDDB;">
             <div class="slider-active dot-style">
+
                 <!-- Slider Single -->
-                <div class="single-slider d-flex align-items-center slider-height">
+                <div class="single-slider    d-flex align-items-center slider-height">
+                    <img src="static/assets/img/gallery/figma_home_ver2_1.png" style="position:absolute">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-xl-7 col-lg-8 col-md-10 ">
@@ -72,19 +74,19 @@
                                 </div>
                                 {% if g.user %}
                                 <div class="hero__caption">
-                                    <span data-animation="fadeInUp" data-delay=".3s"> Hello, {{ g.user }}! Have a good time!    </span>
-                                    <h1 data-animation="fadeInUp" data-delay=".3s">Speed and Easy Pet Skin care.</h1>
+                                    <span data-animation="fadeInUp" data-delay=".3s"> 똑똑한 집사, {{ g.user }}님! 즐거운 하루예요!    </span>
+                                    <h1 data-animation="fadeInUp" data-delay=".3s">우리 강아지 <br> 검사해볼까요? </h1>
                                     <p data-animation="fadeInUp" data-delay=".6s">
                                         If your lovely pet have problems with skin,<br>
                                         AI model woozoozoo help you!
                                     </p>
-                                    <a href="{{ url_for('check.check') }}" class="hero-btn" data-animation="fadeInLeft" data-delay=".3s">Check Now<i class="ti-arrow-right"></i> </a>
+                                    <a href="{{ url_for('check.check') }}" class="hero-btn" data-animation="fadeInLeft" data-delay=".3s"> 5초 피부진단 바로가기 <i class="ti-arrow-right"></i> </a>
                                 </div>
 
                                 {% else %}
                                 <div class="hero__caption">
-                                    <span data-animation="fadeInUp" data-delay=".3s"> Hello! Please Login and Check your pet! </span>
-                                    <h1 data-animation="fadeInUp" data-delay=".3s">Speed and Easy Pet Skin care.</h1>
+                                    <span data-animation="fadeInUp" data-delay=".3s"> 안녕하세요! 로그인 하시면 간편 피부진단이 가능합니다. </span>
+                                    <h1 data-animation="fadeInUp" data-delay=".3s"> 5초만에 피부진단 <br> 바로가기 </be></b4></h1>
                                      <p data-animation="fadeInUp" data-delay=".6s">
                                         If your lovely pet have problems with skin,<br>
                                         AI model woozoozoo help you!
@@ -99,8 +101,11 @@
 <!--        &lt;!&ndash;? Slider Area Start2&ndash;&gt;-->
 <!--        <div class="slider-area" style="background-image: url(static/assets/img/gallery/2.png);">-->
 <!--            <div class="slider-active dot-style">-->
+
                 <!-- Slider Single (kor) -->
+
                 <div class="single-slider d-flex align-items-center slider-height">
+                    <img src="static/assets/img/gallery/figma_home_ver2_2.png" style="position:absolute">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-xl-7 col-lg-8 col-md-10 ">
@@ -114,11 +119,10 @@
                                 {% if g.user %}
                                 <div class="hero__caption">
                                     <span data-animation="fadeInUp" data-delay=".3s"> {{ g.user }}님, 오늘 시월이 상태는 어때요? </span>
-                                    <h1 data-animation="fadeInUp" data-delay=".3s">Speed and Easy Pet Skin care.</h1>
+                                    <h1 data-animation="fadeInUp" data-delay=".3s"> 우쭈쭈 케어봇 <br> 피부 관리 </h1>
                                     <p data-animation="fadeInUp" data-delay=".6s">
                                         우리 반려 동물, 피부에 문제가 있나요? <br>
                                         AI 예측 모델로 피부병 진단 받아 보세요!
-
                                     </p>
                                     <a href="{{ url_for('check.check') }}" class="hero-btn" data-animation="fadeInLeft" data-delay=".3s"> 진단 하러 바로 가기 Go <i class="ti-arrow-right"></i> </a>
                                 </div>
@@ -145,7 +149,7 @@
             </div>
             <!-- slider Social -->
             <div class="button-text d-none d-md-block">
-            <span>Screll</span>
+            <span>Scroll</span>
             </div>
         </div>
         <!-- Slider Area End -->
@@ -180,8 +184,8 @@
                             <div class="footer-tittle">
                                 <h4>Company</h4>
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="home">Home</a></li>
+                                    <li><a href="about">About Us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -191,8 +195,8 @@
                             <div class="footer-tittle">
                                 <h4>Services</h4>
                                 <ul>
-                                    <li><a href="#">Commercial Cleaning</a></li>
-                                    <li><a href="#">Office Cleaning</a></li>
+                                    <li><a href="http://127.0.0.1:5000/check/">반려견 피부진단</a></li>
+                                    <li><a href="http://127.0.0.1:5000/map/">동물병원 찾기</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -202,7 +206,7 @@
                             <div class="footer-tittle">
                                 <h4>Get in Touch</h4>
                                 <ul>
-                                 <li><a href="#">kakaotalk 'woozoozoo' </a></li>
+                                 <li><a href="http://pf.kakao.com/_ujLxaxj/chat">카카오톡 채팅 'woozoozoo' </a></li>
                                  <li><a href="#">  </a></li>
                              </ul>
                             </div>
@@ -228,12 +232,11 @@
         <!-- Footer End-->
     </footer>
     <!-- Scroll Up -->
-    <div id="back-top" >
-        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-    </div>
+<!--    <div id="back-top" style="position: relative; left: 200px; top: 250px;">-->
+<!--        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>-->
+<!--    </div>-->
 
     <!-- JS here -->
-
     <script src="../../static/assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
     <script src="../../static/assets/js/vendor/jquery-1.12.4.min.js"></script>
@@ -264,13 +267,17 @@
     <!-- Jquery Plugins, main Jquery -->
     <script src="../../static/assets/js/plugins.js"></script>
     <script src="../../static/assets/js/main.js"></script>
+
+    <!-- dialogflow chatbot -->
+    <script src="../static/js/scripts.js"></script>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <df-messenger
       intent="WELCOME"
-      chat-title="우쭈쭈 챗봇"
+      chat-title="우쭈쭈 chat-bot"
       agent-id="3a9f3839-06ab-45ec-9371-247ef237f25a"
       language-code="ko">
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     </df-messenger>
+
     </body>
     {% endblock %}
 </html>

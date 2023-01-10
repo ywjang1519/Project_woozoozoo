@@ -33,5 +33,5 @@ def profile():
 
 @bp.route('/test')
 def test():
-    return render_template('question/realtime.html')
+    return render_template('x/chatbot_test.html')
 

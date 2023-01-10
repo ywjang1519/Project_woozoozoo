@@ -12,7 +12,7 @@
         </tr>
         </thead>
         <tbody>
-        {% include 'question/realtime_h.html' %}
+        {% include 'question/realtime_y.html' %}
 
         {% if question_list %}
         {% for question in question_list.items %}
@@ -79,4 +79,15 @@
 <!--    <button type="button" class="btn btn-outline-primary" href="{{ url_for('question.create') }}"> 질문 등록하기 </button>-->
     <a href="{{ url_for('question.create') }}" class="btn btn-outline-primary">질문 등록하기</a>
 </div>
+
+    <!-- dialogflow chatbot -->
+    <script src="../static/js/scripts.js"></script>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      intent="WELCOME"
+      chat-title="우쭈쭈 chat-bot"
+      agent-id="3a9f3839-06ab-45ec-9371-247ef237f25a"
+      language-code="ko">
+    </df-messenger>
+
 {% endblock %}
