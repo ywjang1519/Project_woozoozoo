@@ -12,7 +12,7 @@ instance/*
 __pycache__/
 *.py[cod]
 *$py.class
-
+*.pyc
 # C extensions
 *.so
 
@@ -255,3 +255,4 @@ poetry.toml
 
 
 # End of https://www.toptal.com/developers/gitignore/api/python,flask
+Flask/pywzz/__pycache__/models.cpython-39.pyc

@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, sessio
 from pywzz.models import PetDictionary
 from pywzz.forms import PetDictionaryForm
 from pywzz import db
+import os
 
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -33,10 +34,12 @@ with open('embeding.csv', 'w') as file:
     write.writerows(mapdata)
 '''
 # csv 불러오기
-df1 = pd.read_csv('C:/PythonPRJ/woozoozoo/pywzz/static/file/embeding.csv', header=None)
+
+df1 = pd.read_csv(os.path.abspath('../Flask/pywzz/static/file/embeding.csv'), header=None)
 df1.info()
 # 챗봇 데이터 불러오기
-df = pd.read_csv('C:/PythonPRJ/woozoozoo/pywzz/static/file/ChatbotData.csv')
+
+df = pd.read_csv(os.path.abspath('../Flask/pywzz/static/file/ChatbotData.csv'))
 df.iloc[0]
 
 # 챗봇 함수 입력받은 텍스트와 embeding 유사도 체크후 원본 챗봇에 cos컬럼 만든후 상위 정렬
